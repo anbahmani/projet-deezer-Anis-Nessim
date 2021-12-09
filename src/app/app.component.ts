@@ -1,10 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { firstValueFrom } from 'rxjs';
+import { DeezerService } from './deezer.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'projet-deezer-Anis-Nessim';
+  public response: any;
+
+  constructor(private deezerService:DeezerService){
+
+  }
+
+  public async ngOnInit() {
+    const obs$ = this.deezerService.getArtist();
+    this.response = await firstValueFrom(obs$);
+  }
 }
