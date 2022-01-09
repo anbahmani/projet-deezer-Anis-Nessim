@@ -20,7 +20,7 @@ import { AccueilComponent } from './accueil/accueil.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule  
   ],
   providers: [],
   bootstrap: [AppComponent]

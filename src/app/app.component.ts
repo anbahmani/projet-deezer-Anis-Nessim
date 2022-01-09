@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { DeezerService } from './deezer.service';
-
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';       
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,6 +9,7 @@ import { DeezerService } from './deezer.service';
 })
 export class AppComponent implements OnInit {
   title = 'projet-deezer-Anis-Nessim';
+  faCoffee = faCoffee  ;
   public response: any;
 
   constructor(private deezerService:DeezerService){
