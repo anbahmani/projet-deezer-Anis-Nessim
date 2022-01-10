@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
+import { RechercheGenreComponent } from './recherche-genre/recherche-genre.component';
+import { RechercheMusiqueComponent } from './recherche-musique/recherche-musique.component';
 
 const routes: Routes = [
   {path:'accueil', component: AccueilComponent},
+  {path:'rechercheMusique', component: RechercheMusiqueComponent},
+  {path:'rechercheGenre', component: RechercheGenreComponent},
 	{path:'', redirectTo:'/accueil', pathMatch:'full'}, 
 	{path:'**', redirectTo:'/accueil'}
 ];

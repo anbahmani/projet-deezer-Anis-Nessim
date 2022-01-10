@@ -8,13 +8,18 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AccueilComponent } from './accueil/accueil.component';
+import { RechercheMusiqueComponent } from './recherche-musique/recherche-musique.component';
+import { RechercheGenreComponent } from './recherche-genre/recherche-genre.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    AccueilComponent
+    AccueilComponent,
+    RechercheMusiqueComponent,
+    RechercheGenreComponent
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,6 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 })
 export class AppComponent implements OnInit {
   title = 'projet-deezer-Anis-Nessim';
-  faCoffee = faCoffee  ;
   public response: any;
 
   constructor(private deezerService:DeezerService){
