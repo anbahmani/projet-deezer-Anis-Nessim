@@ -1,0 +1,30 @@
+<form [formGroup] = "searchForm"  class="col-lg-6 offset-lg-3" id="formsearch">
+	<fieldset id="fieldsetForm"> 
+		<legend> Recherche </legend>
+	<input type="text" (keyup)="onKeypressEvent($event)" class="form-control" id="search" placeholder="Recherche" formControlName="search">
+</fieldset>
+</form>
+
+<h4 class="text-center">Résultats de la recherche :</h4>
+<div *ngIf="!isEmptySearch()">Artistes	<ul class="mx-auto list-inline list-inline-horizontal justify-content-left">
+		<li class="list-inline-item justify-content-left" *ngFor="let artist of artists; let indexArtist = index">{{artist.name}}
+			<img src = {{artist.picture_small}} >
+		</li> 
+	</ul>
+</div>
+		<div *ngIf="!isEmptySearch()">Morceaux	<ul class="mx-auto list-inline list-inline-horizontal justify-content-left">
+		<li class="list-inline-item justify-content-left" *ngFor="let track of tracks; let indexTrack = index">{{track.title}}</li> 
+	</ul>
+</div>
+		<div *ngIf="!isEmptySearch()">Albums et Singles	<ul class="mx-auto list-inline list-inline-horizontal justify-content-left">
+		<li class="list-inline-item justify-content-left" *ngFor="let album of albums; let indexAlbum = index">{{album.title}}
+			<img src = {{album.cover_small}} >
+		</li>
+	</ul>
+</div>
+		<div *ngIf="!isEmptySearch()">Playlists	<ul class="mx-auto list-inline list-inline-horizontal justify-content-left">
+		<li class="list-inline-item justify-content-left" *ngFor="let playlist of playlists; let indexPlaylist = index">{{playlist.title}}
+			<img src = {{playlist.picture_small}} >
+		</li> 
+	</ul>
+</div>
