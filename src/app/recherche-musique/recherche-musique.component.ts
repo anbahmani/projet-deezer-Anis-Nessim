@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { firstValueFrom } from 'rxjs';
+import { DeezerService } from '../deezer.service';
+import { Artist } from '../model/Artist';
 
 @Component({
   selector: 'app-recherche-musique',
@@ -6,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recherche-musique.component.scss']
 })
 export class RechercheMusiqueComponent implements OnInit {
+  public artists : Artist[] = [];
 
-  constructor() { }
+  public response: any;
+  constructor(private deezerService:DeezerService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    const obs$ = this.deezerService.getArtistTest();
+    this.response = await firstValueFrom(obs$);
+    this.artists = this.response;
   }
-
 }

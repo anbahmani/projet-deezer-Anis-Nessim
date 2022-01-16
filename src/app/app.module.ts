@@ -10,6 +10,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AccueilComponent } from './accueil/accueil.component';
 import { RechercheMusiqueComponent } from './recherche-musique/recherche-musique.component';
 import { RechercheGenreComponent } from './recherche-genre/recherche-genre.component';
+import { ArtistComponent } from './artist/artist.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { RechercheGenreComponent } from './recherche-genre/recherche-genre.compo
     FooterComponent,
     AccueilComponent,
     RechercheMusiqueComponent,
-    RechercheGenreComponent
+    RechercheGenreComponent,
+    ArtistComponent
   ],
   imports: [
     BrowserModule,

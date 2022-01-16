@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   }
 
   public async ngOnInit() {
-    const obs$ = this.deezerService.getArtist();
+    const obs$ = this.deezerService.getArtistTest();
     this.response = await firstValueFrom(obs$);
   }
 }
