@@ -9,12 +9,14 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AccueilComponent } from './accueil/accueil.component';
-import { RechercheMusiqueComponent } from './recherche-musique/recherche-musique.component';
 import { RechercheGenreComponent } from './recherche-genre/recherche-genre.component';
 import { ArtistComponent } from './artist/artist.component';
 import { GeneralSearchMusicComponent } from './general-search-music/general-search-music.component';
 import { ArtistsByGenreComponent } from './artists-by-genre/artists-by-genre.component';
 import { ErrorComponent } from './error/error.component';
+import { TrackComponent } from './track/track.component';
+import { AlbumComponent } from './album/album.component';
+import { PlaylistComponent } from './playlist/playlist.component';
 
 
 @NgModule({
@@ -23,12 +25,14 @@ import { ErrorComponent } from './error/error.component';
     HeaderComponent,
     FooterComponent,
     AccueilComponent,
-    RechercheMusiqueComponent,
     RechercheGenreComponent,
     GeneralSearchMusicComponent,
     ArtistsByGenreComponent,
+    ErrorComponent,
     ArtistComponent,
-    ErrorComponent
+    TrackComponent,
+    AlbumComponent,
+    PlaylistComponent
   ],
   imports: [
     BrowserModule,

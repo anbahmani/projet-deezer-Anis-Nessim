@@ -1,44 +1,55 @@
-<form [formGroup] = "searchForm"  class="col-lg-6 offset-lg-3" id="formsearch">
-	<fieldset id="fieldsetForm"> 
-		<legend> Recherche	<fa-icon [icon]="faSearch"> </fa-icon> </legend>
-	<input type="text" (keyup)="onKeypressEvent($event)" class="form-control" id="search" placeholder="Recherche" formControlName="search">
-</fieldset>
+<form [formGroup]="searchForm" class="col-lg-6 offset-lg-3" id="formsearch">
+	<fieldset id="fieldsetForm">
+		<legend> Recherche <fa-icon [icon]="faSearch"> </fa-icon>
+		</legend>
+		<input type="text" (keyup)="onKeypressEvent($event)" class="form-control" id="search" placeholder="Recherche"
+			formControlName="search">
+	</fieldset>
 </form>
 <br><br>
-<div class="container">
-<div class="row justify-content-md-center" >
-<div *ngIf="!isEmptySearch()" class="col" >
-		<h4>Artistes </h4>
-	<ul class="mx-auto list-group">
-		<li class="list-group-item justify-content-center" *ngFor="let artist of artists; let indexArtist = index">
-			<img src = {{artist.picture_small}} >
-			<a [routerLink]="['./artist']" [queryParams]="{ id: artist.id}" >{{artist.name}}</a>
-		</li> 
-	</ul>
-</div>
-		<div *ngIf="!isEmptySearch()"  class="col"> 	
+	<div class="container">
+		<div class="row justify-content-md-center">
+			<div *ngIf="!isEmptySearch()" class="col">
+				<h4>Artistes </h4>
+				<ul class="mx-auto list-group">
+					<li class="list-group-item justify-content-center"
+						*ngFor="let artist of artists; let indexArtist = index">
+						<img src={{artist.picture_small}}>
+						<a (click)="sendArtist(artist)" routerLink="artist">{{artist.name}}</a>
+					</li>
+				</ul>
+			</div>
+
+			<div *ngIf="!isEmptySearch()" class="col">
 				<h4> Morceaux</h4>
 				<ul class="mx-auto list-group  justify-content-left">
-		<li class="list-group-item justify-content-left" *ngFor="let track of tracks; let indexTrack = index">{{track.title}}</li> 
-	</ul>
-</div>
-		<div *ngIf="!isEmptySearch()"  class="col" >
-				<h4> Albums et Singles	</h4>
-			<ul class="mx-auto list-group justify-content-left">
-		<li class="list-group-item justify-content-left" *ngFor="let album of albums; let indexAlbum = index">
-			<img src = {{album.cover_small}} >
-			{{album.title}}
-		</li>
-	</ul>
-</div>
-		<div *ngIf="!isEmptySearch()"  class="col">
+					<li class="list-group-item justify-content-left"
+						*ngFor="let track of tracks; let indexTrack = index">
+						<a (click)="sendTrack(this.track)" routerLink="track">{{track.title}}</a>
+					</li>
+				</ul>
+			</div>
+			<div *ngIf="!isEmptySearch()" class="col">
+				<h4> Albums et Singles </h4>
+				<ul class="mx-auto list-group justify-content-left">
+					<li class="list-group-item justify-content-left"
+						*ngFor="let album of albums; let indexAlbum = index">
+
+						<img src={{album.cover_small}}>
+						<a (click)="sendAlbum(this.album)" routerLink="album">{{album.title}}</a>
+
+					</li>
+				</ul>
+			</div>
+			<div *ngIf="!isEmptySearch()" class="col">
 				<h4> Playlists</h4>
-			<ul class="mx-auto list-group  justify-content-left">
-		<li class="list-group-item justify-content-left" *ngFor="let playlist of playlists; let indexPlaylist = index">
-			<img src = {{playlist.picture_small}} >
-			{{playlist.title}}
-		</li> 
-	</ul>
-</div>
-</div>
-</div>
+				<ul class="mx-auto list-group  justify-content-left">
+					<li class="list-group-item justify-content-left"
+						*ngFor="let playlist of playlists; let indexPlaylist = index">
+						<img src={{playlist.picture_small}}>
+						<a (click)="sendPlaylist(this.playlist)" routerLink="playlist">{{playlist.title}}</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
