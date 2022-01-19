@@ -46,4 +46,10 @@ export class DeezerService {
 	var request = url.concat(name).toString();
     return this.http.get(request.concat("&limit=5").toString());
   }
+
+  public getArtistsByGenre(id : number){
+	  var url : string = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/genre/";
+	  var request = url.concat(id.toString()).toString();
+	  return this.http.get(request.concat("/artists").toString());
+  }
 }

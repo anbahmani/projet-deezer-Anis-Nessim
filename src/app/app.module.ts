@@ -12,6 +12,8 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { RechercheMusiqueComponent } from './recherche-musique/recherche-musique.component';
 import { RechercheGenreComponent } from './recherche-genre/recherche-genre.component';
 import { GeneralSearchMusicComponent } from './general-search-music/general-search-music.component';
+import { ArtistsByGenreComponent } from './artists-by-genre/artists-by-genre.component';
+import { ErrorComponent } from './error/error.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { GeneralSearchMusicComponent } from './general-search-music/general-sear
     AccueilComponent,
     RechercheMusiqueComponent,
     RechercheGenreComponent,
-    GeneralSearchMusicComponent
+    GeneralSearchMusicComponent,
+    ArtistsByGenreComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
