@@ -43,8 +43,6 @@ export class DeezerService {
     return this.http.get(request.concat("&limit=5").toString());
   }
 
-
-  
   public getArtist(id:number){
     const url:string="https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/".concat(id.toString());
     return this.http.get(url);
@@ -58,5 +56,11 @@ export class DeezerService {
   public getTopByArtist(id:number){ 
     const url:string="https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/".concat(id.toString().concat("/top"));
     return this.http.get(url);
+  }
+
+  public getArtistsByGenre(id : number){
+	  var url : string = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/genre/";
+	  var request = url.concat(id.toString()).toString();
+	  return this.http.get(request.concat("/artists").toString());
   }
 }

@@ -54,7 +54,6 @@ export class GeneralSearchMusicComponent implements OnInit {
 		const obs_artists$ = this.deezerService.getArtistsByName(event.target.value);
    		this.response = await firstValueFrom(obs_artists$);
    		this.artists = this.response.data;
-		console.log(this.artists[0].picture);
 		const obs_tracks$ = this.deezerService.getTracksByName(event.target.value);
    		this.response = await firstValueFrom(obs_tracks$);
    		this.tracks = this.response.data;
