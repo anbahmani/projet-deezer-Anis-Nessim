@@ -9,17 +9,17 @@ export class DeezerService {
   constructor(private http:HttpClient) { }
 
   public getArtist(id:number){
-    const url:string="https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/".concat(id.toString());
+    const url:string="http://localhost:8080/https://api.deezer.com/artist/".concat(id.toString());
     return this.http.get(url);
   }
 
   public getListGenre(){ 
-    const url:string="https://cors-anywhere.herokuapp.com/https://api.deezer.com/genre";
+    const url:string="http://localhost:8080/https://api.deezer.com/genre";
     return this.http.get(url);
   }
 
   public getArtistTest(){ 
-    const url:string="https://cors-anywhere.herokuapp.com/https://api.deezer.com/artist/27";
+    const url:string="http://localhost:8080/https://api.deezer.com/artist/27";
     return this.http.get(url);
   }
   

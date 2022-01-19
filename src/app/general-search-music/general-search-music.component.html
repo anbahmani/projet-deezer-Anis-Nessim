@@ -4,27 +4,41 @@
 	<input type="text" (keyup)="onKeypressEvent($event)" class="form-control" id="search" placeholder="Recherche" formControlName="search">
 </fieldset>
 </form>
-
-<h4 class="text-center">Résultats de la recherche :</h4>
-<div *ngIf="!isEmptySearch()">Artistes	<ul class="mx-auto list-inline list-inline-horizontal justify-content-left">
-		<li class="list-inline-item justify-content-left" *ngFor="let artist of artists; let indexArtist = index"><a [routerLink]="['./artist']" [queryParams]="{ id: artist.id}" >{{artist.name}}</a>
+<br><br>
+<div class="container">
+<div class="row justify-content-md-center" >
+<div *ngIf="!isEmptySearch()" class="col" >
+		<h4>Artistes </h4>
+	<ul class="mx-auto list-group">
+		<li class="list-group-item justify-content-center" *ngFor="let artist of artists; let indexArtist = index">
 			<img src = {{artist.picture_small}} >
+			<a [routerLink]="['./artist']" [queryParams]="{ id: artist.id}" >{{artist.name}}</a>
 		</li> 
 	</ul>
 </div>
-		<div *ngIf="!isEmptySearch()">Morceaux	<ul class="mx-auto list-inline list-inline-horizontal justify-content-left">
-		<li class="list-inline-item justify-content-left" *ngFor="let track of tracks; let indexTrack = index">{{track.title}}</li> 
+		<div *ngIf="!isEmptySearch()"  class="col"> 	
+				<h4> Morceaux</h4>
+				<ul class="mx-auto list-group  justify-content-left">
+		<li class="list-group-item justify-content-left" *ngFor="let track of tracks; let indexTrack = index">{{track.title}}</li> 
 	</ul>
 </div>
-		<div *ngIf="!isEmptySearch()">Albums et Singles	<ul class="mx-auto list-inline list-inline-horizontal justify-content-left">
-		<li class="list-inline-item justify-content-left" *ngFor="let album of albums; let indexAlbum = index">{{album.title}}
+		<div *ngIf="!isEmptySearch()"  class="col" >
+				<h4> Albums et Singles	</h4>
+			<ul class="mx-auto list-group justify-content-left">
+		<li class="list-group-item justify-content-left" *ngFor="let album of albums; let indexAlbum = index">
 			<img src = {{album.cover_small}} >
+			{{album.title}}
 		</li>
 	</ul>
 </div>
-		<div *ngIf="!isEmptySearch()">Playlists	<ul class="mx-auto list-inline list-inline-horizontal justify-content-left">
-		<li class="list-inline-item justify-content-left" *ngFor="let playlist of playlists; let indexPlaylist = index">{{playlist.title}}
+		<div *ngIf="!isEmptySearch()"  class="col">
+				<h4> Playlists</h4>
+			<ul class="mx-auto list-group  justify-content-left">
+		<li class="list-group-item justify-content-left" *ngFor="let playlist of playlists; let indexPlaylist = index">
 			<img src = {{playlist.picture_small}} >
+			{{playlist.title}}
 		</li> 
 	</ul>
+</div>
+</div>
 </div>

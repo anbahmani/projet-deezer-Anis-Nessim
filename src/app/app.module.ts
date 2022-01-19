@@ -27,6 +27,7 @@ import { ErrorComponent } from './error/error.component';
     RechercheGenreComponent,
     GeneralSearchMusicComponent,
     ArtistsByGenreComponent,
+    ArtistComponent,
     ErrorComponent
   ],
   imports: [

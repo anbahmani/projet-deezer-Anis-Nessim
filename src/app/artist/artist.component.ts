@@ -29,7 +29,7 @@ export class ArtistComponent implements OnInit {
     this.id = this.route.snapshot.queryParamMap.get('id') || '' ;
     const obs$ = this.deezerService.getArtist(+(this.id));
     this.response = await firstValueFrom(obs$);
-    this.artist = this.response.data;
+    this.artist = this.response;
     const liste$ = this.deezerService.getTopByArtist(+(this.id));
     this.response2 = await firstValueFrom(liste$);
     this.listeTop = this.response2.data;
