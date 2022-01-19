@@ -24,5 +24,4 @@ export class RechercheGenreComponent implements OnInit {
   setSelectedGenre(selectedGenre : Genre) {
 	this.selectedGenre = selectedGenre;
   }
-
 }

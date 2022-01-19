@@ -8,6 +8,10 @@ import { Album } from '../models/Album';
 import { Track } from '../models/Track';
 import { Playlist } from '../models/Playlist'; 
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { ArtistService } from '../services/artist.service';
+import { AlbumService } from '../services/album.service';
+import { TrackService } from '../services/track.service';
+import { PlaylistService } from '../services/playlist.service';
 
 @Component({
   selector: 'app-general-search-music',
@@ -26,7 +30,12 @@ export class GeneralSearchMusicComponent implements OnInit {
 	searchForm !: FormGroup;
 	emptySearch : boolean = true;
 
-	constructor(private fb : FormBuilder, private router: Router, private deezerService:DeezerService) {
+	constructor(private fb : FormBuilder, private router: Router, 
+				private deezerService:DeezerService, 
+				private artistService:ArtistService,
+				private albumService:AlbumService,
+				private trackService:TrackService,
+				private playlistService:PlaylistService) {
 	 }
   
 	ngOnInit() : void {
@@ -63,5 +72,21 @@ export class GeneralSearchMusicComponent implements OnInit {
 		const obs_playslits$ = this.deezerService.getPlaylistsByName(event.target.value);
    		this.response = await firstValueFrom(obs_playslits$);
    		this.playlists = this.response.data;
+	}
+
+	public sendArtist(selectedArtist:Artist){
+		this.artistService.setArtist(selectedArtist);
+	}
+
+	public sendTrack(selectedTrack:Track){
+		this.trackService.setTrack(selectedTrack);
+	}
+
+	public sendAlbum(selectedAlbum:Album){
+		this.albumService.setAlbum(selectedAlbum);
+	}
+
+	public sendPlaylist(selectedPlaylist:Playlist){
+		this.playlistService.setPlaylist(selectedPlaylist);
 	}
 }
