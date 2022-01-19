@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { RechercheMusiqueComponent } from './recherche-musique/recherche-musique.component';
 import { RechercheGenreComponent } from './recherche-genre/recherche-genre.component';
 import { ArtistComponent } from './artist/artist.component';
+import { GeneralSearchMusicComponent } from './general-search-music/general-search-music.component';
 
 
 @NgModule({
@@ -21,13 +23,15 @@ import { ArtistComponent } from './artist/artist.component';
     AccueilComponent,
     RechercheMusiqueComponent,
     RechercheGenreComponent,
-    ArtistComponent
+    ArtistComponent,
+    GeneralSearchMusicComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FontAwesomeModule  
+    FontAwesomeModule,
+	ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

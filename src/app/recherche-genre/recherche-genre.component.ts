@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
-import { DeezerService } from '../deezer.service';
+import { DeezerService } from '../services/deezer.service';
 
 
 @Component({

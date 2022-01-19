@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
-import { DeezerService } from './deezer.service';
+import { DeezerService } from './services/deezer.service';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';       
 @Component({
   selector: 'app-root',
