@@ -1,4 +1,8 @@
-<div *ngFor="let artist of artists; let indexArtist = index">
-	<img src={{artist.picture}}>
-	<p>{{artist.name}}</p>
-</div>
+<p-carousel [value]="artists" [numVisible]="5" [numScroll]="5" [circular]=true>
+		<ng-template let-artist pTemplate="item">
+			<div (click)="sendArtistAndNavigateToArtist(artist)" class="card" id="card">
+				<img class="card-img-top img-fluid" src={{artist.picture_big}} alt="Card image cap">
+				<p class="card-text text-center">{{artist.name}}</p>
+			</div>
+		</ng-template>
+</p-carousel>

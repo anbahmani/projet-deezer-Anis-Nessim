@@ -17,6 +17,8 @@ import { ErrorComponent } from './error/error.component';
 import { TrackComponent } from './track/track.component';
 import { AlbumComponent } from './album/album.component';
 import { PlaylistComponent } from './playlist/playlist.component';
+import {AccordionModule} from 'primeng/accordion';
+import {CarouselModule} from 'primeng/carousel';
 
 
 @NgModule({
@@ -30,16 +32,18 @@ import { PlaylistComponent } from './playlist/playlist.component';
     ArtistsByGenreComponent,
     ErrorComponent,
 	ArtistComponent,
- TrackComponent,
- AlbumComponent,
- PlaylistComponent
+ 	TrackComponent,
+ 	AlbumComponent,
+ 	PlaylistComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
-	ReactiveFormsModule
+	ReactiveFormsModule,
+	AccordionModule,
+	CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
