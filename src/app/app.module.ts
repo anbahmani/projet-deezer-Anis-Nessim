@@ -31,10 +31,10 @@ import {CarouselModule} from 'primeng/carousel';
     GeneralSearchMusicComponent,
     ArtistsByGenreComponent,
     ErrorComponent,
-	ArtistComponent,
- 	TrackComponent,
- 	AlbumComponent,
- 	PlaylistComponent,
+    ArtistComponent,
+    TrackComponent,
+    AlbumComponent,
+    PlaylistComponent
   ],
   imports: [
     BrowserModule,
