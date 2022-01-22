@@ -10,6 +10,7 @@ import { Playlist } from '../models/Playlist';
   providedIn: 'root'
 })
 export class DeezerService {
+  
 
   constructor(private http:HttpClient) { }
 
@@ -29,6 +30,11 @@ export class DeezerService {
     var url : string = "http://localhost:8080/https://api.deezer.com/search/track?q=";
     var request = url.concat(name).toString();
     return this.http.get(request.concat("&limit=5").toString());
+  }
+
+  getTrackFullInfo(id: number) {
+    var url : string = "http://localhost:8080/https://api.deezer.com/track/".concat(id.toString());
+    return this.http.get(url);
   }
 
   public getAlbumsByName(name : string){
