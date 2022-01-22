@@ -1,3 +1,6 @@
+import { Artist } from "./Artist";
+import { Track } from "./Track";
+
 export interface Album{
 	id : number;
 	title : string;
@@ -11,5 +14,9 @@ export interface Album{
 	nb_tracks : number;
 	record_type	: string;
 	explicit_lyrics : boolean;
-	artist : Object;
+	artist : Artist;
+	fans:number;
+	release_date:Date;
+	duration:number;
+	tracks:	Track[];
 }

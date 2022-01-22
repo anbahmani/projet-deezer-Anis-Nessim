@@ -25,7 +25,9 @@
 				<ul class="mx-auto list-group  list-group-flush justify-content-left">
 					<li class="list-group-item justify-content-left"
 						*ngFor="let track of tracks; let indexTrack = index">
-						<a (click)="sendTrack(this.track)" routerLink="track" >{{track.title}}</a>
+				
+							<img src="{{track.album.cover_small}}"  class="imgGeneralSearch" />
+							<a (click)="sendTrack(this.track)" routerLink="track" >{{track.title_short}}</a>
 					</li>
 				</ul>
 			</div>

@@ -19,6 +19,8 @@ import { AlbumComponent } from './album/album.component';
 import { PlaylistComponent } from './playlist/playlist.component';
 import {AccordionModule} from 'primeng/accordion';
 import {CarouselModule} from 'primeng/carousel';
+import { DatePipe } from '@angular/common';
+
 
 
 @NgModule({
@@ -45,7 +47,7 @@ import {CarouselModule} from 'primeng/carousel';
 	AccordionModule,
 	CarouselModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
