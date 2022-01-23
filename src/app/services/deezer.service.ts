@@ -74,4 +74,10 @@ export class DeezerService {
 	  var request = url.concat(id.toString()).toString();
 	  return this.http.get(request.concat("/artists").toString());
   }
+
+  public getAlbumsByArtist(id : number){
+	var url : string = "http://localhost:8080/https://api.deezer.com/artist/";
+	var request = url.concat(id.toString()).toString();
+	return this.http.get(request.concat("/albums").toString());
+  }
 }

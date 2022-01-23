@@ -18,7 +18,7 @@ export class ArtistsByGenreComponent implements OnInit {
 	response : any;
 	numItemsScroll !: number;
 
-  constructor(private deezerService:DeezerService, public router:Router, private artistService:ArtistService) { }
+  constructor(private deezerService:DeezerService, private router:Router, private artistService:ArtistService) { }
 
   async ngOnInit() {
 	if (this.currentGenre != undefined)
@@ -47,6 +47,6 @@ export class ArtistsByGenreComponent implements OnInit {
 
 	public sendArtistAndNavigateToArtist(selectedArtist:Artist){
 		this.artistService.setArtist(selectedArtist);
-		this.router.navigateByUrl('/recherche/artist');
+		this.router.navigateByUrl('/artist');
 	}
 }

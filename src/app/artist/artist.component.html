@@ -37,7 +37,7 @@
             </div>
             <div class="col align-self-center">{{titre.title}} </div>
             <div class="col align-self-center">
-              {{titre.duration}}s
+              {{secondesToMinutes(titre)}}s
             </div>
             <div class="col align-self-center">
               <audio controls src="{{titre?.preview}}" type="audio/mp3" class=""></audio>
@@ -52,3 +52,17 @@
     </div>
   </div>
 </div>
+
+
+<h3 class="text-center">Albums et Singles</h3>
+
+<p-carousel [value]="albums" [numVisible]="5" [numScroll]="5" [circular]=true>
+	<ng-template let-album pTemplate="item">
+		<div (click)="sendAlbumAndNavigateToAlbum(album)" class="card" id="card">
+			<button>
+			<img class="card-img-top img-fluid" src={{album.cover_big}} alt="Card image cap">
+			<p class="card-text text-center">{{album.title}}</p>
+		</button>
+		</div>
+	</ng-template>
+</p-carousel>

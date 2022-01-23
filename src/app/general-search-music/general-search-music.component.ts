@@ -74,19 +74,23 @@ export class GeneralSearchMusicComponent implements OnInit {
    		this.playlists = this.response.data;
 	}
 
-	public sendArtist(selectedArtist:Artist){
+	public sendArtistAndNavigateToArtist(selectedArtist:Artist){
 		this.artistService.setArtist(selectedArtist);
+		this.router.navigateByUrl('/artist');
 	}
 
-	public sendTrack(selectedTrack:Track){
+	public sendTrackAndNavigateToTrack(selectedTrack:Track){
 		this.trackService.setTrack(selectedTrack);
+		this.router.navigateByUrl('/artist');
 	}
 
-	public sendAlbum(selectedAlbum:Album){
+	public sendAlbumAndNavigateToAlbum(selectedAlbum:Album){
 		this.albumService.setAlbum(selectedAlbum);
+		this.router.navigateByUrl('/artist');
 	}
 
-	public sendPlaylist(selectedPlaylist:Playlist){
+	public sendPlaylistAndNavigateToPlaylist(selectedPlaylist:Playlist){
 		this.playlistService.setPlaylist(selectedPlaylist);
+		this.router.navigateByUrl('/artist');
 	}
 }

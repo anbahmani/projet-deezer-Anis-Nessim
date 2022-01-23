@@ -15,9 +15,12 @@
 					<li class="list-group-item justify-content-center"
 						*ngFor="let artist of artists; let indexArtist = index">
 						<img src={{artist.picture_small}}  class="imgGeneralSearch">
-						<a (click)="sendArtist(artist)" routerLink="artist" >{{artist.name}}</a>
+						<a (click)="sendArtistAndNavigateToArtist(artist)" routerLink="artist" >{{artist.name}}</a>
 					</li>
 				</ul>
+				<div class="mx-auto">
+					<button>Charger plus d'artistes</button>
+				</div>	
 			</div>
 
 			<div *ngIf="!isEmptySearch()" class="col">
@@ -25,11 +28,13 @@
 				<ul class="mx-auto list-group  list-group-flush justify-content-left">
 					<li class="list-group-item justify-content-left"
 						*ngFor="let track of tracks; let indexTrack = index">
-				
-							<img src="{{track.album.cover_small}}"  class="imgGeneralSearch" />
-							<a (click)="sendTrack(this.track)" routerLink="track" >{{track.title_short}}</a>
+						<img src={{track.album.cover_small}} class="imgGeneralSearch">
+						<a (click)="sendTrackAndNavigateToTrack(this.track)">{{track.title}}</a>
 					</li>
 				</ul>
+				<div class="mx-auto">
+					<button>Charger plus de morceaux</button>
+				</div>	
 			</div>
 			<div *ngIf="!isEmptySearch()" class="col">
 				<h4 class="text-center"> Albums et Singles </h4>
@@ -38,10 +43,14 @@
 						*ngFor="let album of albums; let indexAlbum = index">
 
 						<img src={{album.cover_small}} class="imgGeneralSearch">
-						<a (click)="sendAlbum(this.album)" routerLink="album" >{{album.title}}</a>
+						<a (click)="sendAlbumAndNavigateToAlbum(this.album)">{{album.title}}</a>
 
 					</li>
 				</ul>
+				<div class="mx-auto">
+					<button>Charger plus d'albums</button>
+				</div>
+
 			</div>
 			<div *ngIf="!isEmptySearch()" class="col">
 				<h4 class="text-center"> Playlists</h4>
@@ -49,9 +58,12 @@
 					<li class="list-group-item justify-content-left"
 						*ngFor="let playlist of playlists; let indexPlaylist = index">
 						<img src={{playlist.picture_small}} class="imgGeneralSearch">
-						<a (click)="sendPlaylist(this.playlist)" routerLink="playlist" > {{playlist.title}}</a>
+						<a (click)="sendPlaylistAndNavigateToPlaylist(this.playlist)"> {{playlist.title}}</a>
 					</li>
 				</ul>
+				<div class="mx-auto">
+				<button>Charger plus de playlists</button>
+				</div>
 			</div>
 		</div>
 	</div>

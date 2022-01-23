@@ -1,11 +1,13 @@
 import { HttpHeaderResponse, HttpParams } from '@angular/common/http';
 import { AfterContentChecked, AfterContentInit, Component, DoCheck, Input, OnInit } from '@angular/core';
-import { ActivatedRoute,RouterStateSnapshot } from '@angular/router';
+import { ActivatedRoute,Router,RouterStateSnapshot } from '@angular/router';
 import { firstValueFrom, forkJoin } from 'rxjs';
 import { DeezerService } from '../services/deezer.service';
 import { Artist } from '../models/Artist';
 import { Track } from '../models/Track';
 import { ArtistService } from '../services/artist.service';
+import { Album } from '../models/Album';
+import { AlbumService } from '../services/album.service';
 
 @Component({
   selector: 'app-artist',
@@ -18,8 +20,9 @@ export class ArtistComponent implements OnInit {
   public response: any;
   public response2!: any;
   public listeTop!: Track[];
+  public albums!:Album[];
 
-  constructor(private deezerService:DeezerService,private route: ActivatedRoute, private artistService:ArtistService) {
+  constructor(private deezerService:DeezerService,private router:Router, private artistService:ArtistService, private albumService:AlbumService) {
 
    }
 
@@ -27,7 +30,21 @@ export class ArtistComponent implements OnInit {
     this.artist = this.artistService.getArtist();
 	console.log(this.artistService.getArtist());
     const liste$ = this.deezerService.getTopByArtist(+(this.artist.id));
-    this.response2 = await firstValueFrom(liste$);
-    this.listeTop = this.response2.data;
+    this.response = await firstValueFrom(liste$);
+    this.listeTop = this.response.data;
+	const listeAlbums$ = this.deezerService.getAlbumsByArtist(+(this.artist.id));
+    this.response2 = await firstValueFrom(listeAlbums$);
+    this.albums = this.response2.data;
+  }
+
+  public secondesToMinutes(track:Track): string{
+		let minutes = Math.floor(track.duration / 60).toString().concat("min");
+		let secondes = (track.duration % 60).toString();
+		return (minutes.concat(secondes));
+  }
+
+  public sendAlbumAndNavigateToAlbum(selectedAlbum : Album){
+	this.albumService.setAlbum(selectedAlbum);
+	this.router.navigateByUrl('/album');
   }
 }
