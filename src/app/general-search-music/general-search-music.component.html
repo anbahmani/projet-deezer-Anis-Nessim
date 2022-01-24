@@ -19,7 +19,7 @@
 					</li>
 				</ul>
 				<div class="mx-auto">
-					<button>Charger plus d'artistes</button>
+					<button *ngIf="this.canGetMoreArtists" (click)="getArtistsFromNextPage()">Charger plus d'artistes</button>
 				</div>	
 			</div>
 
@@ -33,7 +33,7 @@
 					</li>
 				</ul>
 				<div class="mx-auto">
-					<button>Charger plus de morceaux</button>
+					<button *ngIf="this.canGetMoreTracks" (click)="getTracksFromNextPage()">Charger plus de morceaux</button>
 				</div>	
 			</div>
 			<div *ngIf="!isEmptySearch()" class="col">
@@ -41,14 +41,12 @@
 				<ul class="mx-auto list-group list-group-flush justify-content-left">
 					<li class="list-group-item justify-content-left"
 						*ngFor="let album of albums; let indexAlbum = index">
-
 						<img src={{album.cover_small}} class="imgGeneralSearch">
 						<a (click)="sendAlbumAndNavigateToAlbum(this.album)">{{album.title}}</a>
-
 					</li>
 				</ul>
 				<div class="mx-auto">
-					<button>Charger plus d'albums</button>
+					<button *ngIf="this.canGetMoreAlbums" (click)="getAlbumsFromNextPage()">Charger plus d'albums</button>
 				</div>
 
 			</div>
@@ -62,7 +60,7 @@
 					</li>
 				</ul>
 				<div class="mx-auto">
-				<button>Charger plus de playlists</button>
+				<button *ngIf="this.canGetMorePlaylists" (click)="getPlaylistsFromNextPage()">Charger plus de playlists</button>
 				</div>
 			</div>
 		</div>

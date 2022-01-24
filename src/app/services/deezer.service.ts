@@ -20,7 +20,7 @@ export class DeezerService {
     return this.http.get(url);
   }
 
-  public getArtistsByName(name : string){
+  public getArtistsByName(name : string, indexNum ?: number){
     var url : string = "http://localhost:8080/https://api.deezer.com/search/artist?q=";
 	var request = url.concat(name).toString();
     return this.http.get(request.concat("&limit=5").toString());
@@ -79,5 +79,13 @@ export class DeezerService {
 	var url : string = "http://localhost:8080/https://api.deezer.com/artist/";
 	var request = url.concat(id.toString()).toString();
 	return this.http.get(request.concat("/albums").toString());
+  }
+
+  public getTrackList(request:URL){
+	return this.http.get("http://localhost:8080/".concat(request.toString()));
+  }
+
+  public getResponseFromUrl(request:URL){
+	return this.http.get("http://localhost:8080/".concat(request.toString()));
   }
 }

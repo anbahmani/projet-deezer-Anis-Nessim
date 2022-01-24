@@ -19,4 +19,5 @@ export interface Album{
 	release_date:Date;
 	duration:number;
 	tracks:	Track[];
+	tracklist:URL;
 }
