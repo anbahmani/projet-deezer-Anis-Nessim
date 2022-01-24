@@ -7,7 +7,7 @@ import { Artist} from '../models/Artist';
 import { Album } from '../models/Album';
 import { Track } from '../models/Track';
 import { Playlist } from '../models/Playlist'; 
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch,faPlus } from '@fortawesome/free-solid-svg-icons';
 import { ArtistService } from '../services/artist.service';
 import { AlbumService } from '../services/album.service';
 import { TrackService } from '../services/track.service';
@@ -20,7 +20,8 @@ import { PlaylistService } from '../services/playlist.service';
 })
 export class GeneralSearchMusicComponent implements OnInit {
 
-	faSearch = faSearch;
+	public faSearch = faSearch;
+	public faPlus = faPlus;
 	
 	public artists: Artist[] = [];
 	public tracks: Track[] = [];
@@ -100,7 +101,7 @@ export class GeneralSearchMusicComponent implements OnInit {
 
 	public sendPlaylistAndNavigateToPlaylist(selectedPlaylist:Playlist){
 		this.playlistService.setPlaylist(selectedPlaylist);
-		this.router.navigateByUrl('/artist');
+		this.router.navigateByUrl('/playlist');
 	}
 
 	public checkNextFromResponse(url:string) : boolean{

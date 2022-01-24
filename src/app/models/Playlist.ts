@@ -1,3 +1,5 @@
+
+
 export interface Playlist {
 	id : number;
 	title : string;
@@ -10,5 +12,10 @@ export interface Playlist {
 	picture_big	: URL;
 	picture_xl	: URL;
 	checksum : string;
-	user : Object;
+	creator : any;
+	creation_date:Date;
+	description:string;
+	duration:number;
+	fans:number;
+	tracks:any;
 }

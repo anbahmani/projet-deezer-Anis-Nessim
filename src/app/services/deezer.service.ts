@@ -85,6 +85,11 @@ export class DeezerService {
 	return this.http.get("http://localhost:8080/".concat(request.toString()));
   }
 
+  public getPlaylistFullInfo(id : number){
+    var url : string = "http://localhost:8080/https://api.deezer.com/playlist/".concat(id.toString());
+    return this.http.get(url);
+  }
+
   public getResponseFromUrl(request:URL){
 	return this.http.get("http://localhost:8080/".concat(request.toString()));
   }

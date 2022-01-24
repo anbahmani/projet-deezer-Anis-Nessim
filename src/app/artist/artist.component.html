@@ -23,7 +23,7 @@
   <br><br>
 
   <h3 class="text-center">Populaires</h3>
-  
+
   <div class="row justify-content-md-center">
     <div class="col-lg">
     </div>
@@ -43,9 +43,9 @@
               <audio controls src="{{titre?.preview}}" type="audio/mp3" class=""></audio>
             </div>
           </div>
-            
+
         </li>
-         
+
       </ul>
     </div>
     <div class="col col-lg">
@@ -57,23 +57,25 @@
 <h3 class="text-center">Albums et Singles</h3>
 
 <p-carousel *ngIf="albums.length > 5" [value]="albums" [numVisible]="5" [numScroll]="5" [circular]=true>
-	<ng-template let-album pTemplate="item">
-		<div (click)="sendAlbumAndNavigateToAlbum(album)" class="card" id="card">
-			<button>
-			<img class="card-img-top img-fluid" src={{album.cover_big}} alt="Card image cap">
-			<p class="card-text text-center">{{album.title}}</p>
-			</button>
-		</div>
-	</ng-template>
+  <ng-template let-album pTemplate="item">
+    <div (click)="sendAlbumAndNavigateToAlbum(album)" class="card" id="card">
+      <button>
+        <img class="card-img-top img-fluid" src={{album.cover_big}} alt="Card image cap">
+        <p class="card-text text-center">{{album.title}}</p>
+      </button>
+    </div>
+  </ng-template>
 </p-carousel>
 
 <div *ngIf="albums.length <= 5">
-	<div *ngFor="let album of albums; let indexAlbums = index">
-		<div (click)="sendAlbumAndNavigateToAlbum(album)" class="card" id="card">
-			<button>
-			<img class="card-img-top img-fluid" src={{album.cover_big}} alt="Card image cap">
-			<p class="card-text text-center">{{album.title}}</p>
-			</button>
-		</div>
-	</div>
+    <ul class="list-inline" >
+    <li class="list-inline-item" *ngFor="let album of albums; let indexAlbums = index">
+      <div (click)="sendAlbumAndNavigateToAlbum(album)" class="card">
+        <button>
+          <img class="card-img-top img-fluid" src={{album.cover_medium}}>
+          <p class="card-text text-center">{{album.title}}</p>
+        </button>
+      </div>
+    </li>
+    </ul>
 </div>

@@ -16,7 +16,7 @@ const routes: Routes = [
   {path:'artist', component: ArtistComponent},
   {path:'album', component: AlbumComponent},
   {path:'track', component: TrackComponent},
-  {path:'recherche/playlist', component: PlaylistComponent},
+  {path:'playlist', component: PlaylistComponent},
   {path:'error', component:ErrorComponent},
   {path:'', redirectTo:'/accueil', pathMatch:'full'}, 
   {path:'**', redirectTo:'/error'}
