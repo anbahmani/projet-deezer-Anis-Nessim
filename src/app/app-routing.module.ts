@@ -8,7 +8,7 @@ import { ChartComponent } from './chart/chart.component';
 import { ErrorComponent } from './error/error.component';
 import { GeneralSearchMusicComponent } from './general-search-music/general-search-music.component';
 import { PlaylistComponent } from './playlist/playlist.component';
-import { RechercheGenreComponent } from './recherche-genre/recherche-genre.component';
+import {  SearchGenreComponent } from './search-genre/search-genre.component';
 import { TrackComponent } from './track/track.component';
 import { UserArtistsComponent } from './user-artists/user-artists.component';
 import { UserTracksComponent } from './user-tracks/user-tracks.component';
@@ -17,7 +17,7 @@ import { UserPlaylistsComponent } from './user-playlists/user-playlists.componen
 
 const routes: Routes = [
   {path:'accueil', component: AccueilComponent},
-  {path:'rechercheGenre', component: RechercheGenreComponent},
+  {path:'rechercheGenre', component: SearchGenreComponent},
   {path:'recherche', component:GeneralSearchMusicComponent},
   {path:'artist', component: ArtistComponent},
   {path:'album', component: AlbumComponent},

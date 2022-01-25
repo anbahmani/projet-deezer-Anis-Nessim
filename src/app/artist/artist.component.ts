@@ -18,9 +18,9 @@ import { UserService } from '../services/user.service';
 export class ArtistComponent implements OnInit {
   id!: string ;
   public artist!: Artist;
-  public response: any;
-  public response2!: any;
-  public listeTop!: Track[];
+  private response: any;
+  private response2!: any;
+  public listTop!: Track[];
   public albums!:Album[];
 
   constructor(	private deezerService:DeezerService,
@@ -33,21 +33,21 @@ export class ArtistComponent implements OnInit {
     this.artist = this.artistService.getArtist();
     const liste$ = this.deezerService.getTopByArtist(+(this.artist.id));
     this.response = await firstValueFrom(liste$);
-    this.listeTop = this.response.data;
+    this.listTop = this.response.data;
 	  const listeAlbums$ = this.deezerService.getAlbumsByArtist(+(this.artist.id));
     this.response2 = await firstValueFrom(listeAlbums$);
     this.albums = this.response2.data;
   }
 
   public secondesToMinutes(track:Track): string{
-		let minutes = Math.floor(track.duration / 60).toString().concat("min");
+		let minutes = Math.floor(track.duration / 60).toString().concat("min ");
 		let secondes = (track.duration % 60).toString();
 		return (minutes.concat(secondes));
   }
 
   public sendAlbumAndNavigateToAlbum(selectedAlbum : Album){
-	this.albumService.setAlbum(selectedAlbum);
-	this.router.navigateByUrl('/album');
+    this.albumService.setAlbum(selectedAlbum);
+    this.router.navigateByUrl('/album');
   }
 
   public shortString(str:string) : string{

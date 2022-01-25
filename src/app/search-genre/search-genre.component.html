@@ -2,7 +2,9 @@
 <p-carousel [value]="genres" [numVisible]="10" [numScroll]="5" [circular]=true>
 	<ng-template let-genre pTemplate="item">
 		<div class="card" id="card">
-			<button [ngClass]="genre == this.selectedGenre ? 'colored': ''" (click)="this.selectedGenre = genre" type="button" class="btn bottom-center" id="card">{{genre.name}}</button>
+			<button [ngClass]="genre == this.selectedGenre ? 'colored': ''" (click)="this.selectedGenre = genre" type="button" class="btn bottom-center" id="card">
+				{{genre.name}}
+			</button>
 		</div>
 	</ng-template>
 </p-carousel>

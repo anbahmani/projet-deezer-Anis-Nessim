@@ -16,7 +16,7 @@ export class TrackComponent implements OnInit {
   public faCalendar = faCalendar;
 
 	public track !: Track;
-  public response:any;
+  private response:any;
 
   constructor(private deezerService:DeezerService, private trackService:TrackService) {}
 
@@ -32,7 +32,7 @@ export class TrackComponent implements OnInit {
     return (minutes.concat(secondes));
 }
 
-public dateFr():string{
+public dateRelease():string{
 
   let formattedDt = formatDate(this.track.album.release_date, 'dd/MM/yyyy', 'en_US');
   return formattedDt;

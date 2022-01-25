@@ -1,4 +1,5 @@
 <div class="container">
+
   <div class="row">
     <div class="col-md-6">
       <div>
@@ -10,8 +11,12 @@
         {{track.title}}
       </h3>
       <p class="text-left"> <img src="{{track.artist.picture_small}}" id="imgArtist" /> by {{track.artist.name}} </p>
-      <p class="text-left"><fa-icon [icon]="faHourglass"> </fa-icon>  {{secondesToMinutes()}}s </p>
-      <p class="text-left"><fa-icon [icon]="faCalendar"> </fa-icon>  {{dateFr()}} </p>
+      <p class="text-left">
+        <fa-icon [icon]="faHourglass"> </fa-icon> {{secondesToMinutes()}}s
+      </p>
+      <p class="text-left">
+        <fa-icon [icon]="faCalendar"> </fa-icon> {{dateRelease()}}
+      </p>
       <audio controls src="{{track?.preview}}" type="audio/mp3" class=""></audio>
     </div>
 

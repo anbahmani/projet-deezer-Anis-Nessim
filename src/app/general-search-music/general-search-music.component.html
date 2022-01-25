@@ -1,67 +1,74 @@
 <form [formGroup]="searchForm" class="col-lg-6 offset-lg-3" id="formsearch">
 	<fieldset id="fieldsetForm">
-		<legend> Recherche <fa-icon [icon]="faSearch"> </fa-icon>
+		<legend> 
+			Recherche <fa-icon [icon]="faSearch"> </fa-icon>
 		</legend>
 		<input type="text" (keyup)="onKeypressEvent($event)" class="form-control" id="search" placeholder="Recherche"
-formControlName="search">
+			formControlName="search">
 	</fieldset>
 </form>
 <br><br>
-	<div class="container">
-		<div class="row justify-content-md-center">
-			<div *ngIf="!isEmptySearch()" class="col">
-				<h4 class="text-center">Artistes </h4>
-				<ul class="mx-auto list-group list-group-flush">
-					<li class="list-group-item justify-content-center"
-						*ngFor="let artist of artists; let indexArtist = index">
-						<img src={{artist.picture_small}}  class="imgGeneralSearch">
-						<a (click)="sendArtistAndNavigateToArtist(artist)" routerLink="artist" >{{shortString(artist.name)}}</a>
-					</li>
-				</ul>
-				<div class="mx-auto text-center">
-					<button *ngIf="this.canGetMoreArtists" (click)="getArtistsFromNextPage()" class="btn btn-light"> Voir <fa-icon [icon]="faPlus">  </fa-icon> </button>
-				</div>	
+<div class="container">
+	<div class="row justify-content-md-center">
+		<div *ngIf="!isEmptySearch()" class="col">
+			<h4 class="text-center">Artistes </h4>
+			<ul class="mx-auto list-group list-group-flush">
+				<li class="list-group-item justify-content-center"
+					*ngFor="let artist of artists; let indexArtist = index">
+					<img src={{artist.picture_small}} class="imgGeneralSearch">
+					<a (click)="sendArtistAndNavigateToArtist(artist)"
+						routerLink="artist">{{shortString(artist.name)}}</a>
+				</li>
+			</ul>
+			<div class="mx-auto text-center">
+				<button *ngIf="this.canGetMoreArtists" (click)="getArtistsFromNextPage()" class="btn btn-light"> Voir
+					<fa-icon [icon]="faPlus"> </fa-icon> </button>
+			</div>
+		</div>
+
+		<div *ngIf="!isEmptySearch()" class="col">
+			<h4 class="text-center"> Morceaux</h4>
+			<ul class="mx-auto list-group  list-group-flush justify-content-left">
+				<li class="list-group-item justify-content-left" *ngFor="let track of tracks; let indexTrack = index">
+					<img src={{track.album.cover_small}} class="imgGeneralSearch">
+					<a (click)="sendTrackAndNavigateToTrack(this.track)"
+						routerLink="track">{{shortString(track.title)}}</a>
+				</li>
+			</ul>
+			<div class="mx-auto text-center">
+				<button *ngIf="this.canGetMoreTracks" (click)="getTracksFromNextPage()" class="btn btn-light"> Voir
+					<fa-icon [icon]="faPlus"> </fa-icon> </button>
+			</div>
+		</div>
+		<div *ngIf="!isEmptySearch()" class="col">
+			<h4 class="text-center"> Albums et Singles </h4>
+			<ul class="mx-auto list-group list-group-flush justify-content-left">
+				<li class="list-group-item justify-content-left" *ngFor="let album of albums; let indexAlbum = index">
+					<img src={{album.cover_small}} class="imgGeneralSearch">
+					<a (click)="sendAlbumAndNavigateToAlbum(this.album)"
+						routerLink="album">{{shortString(album.title)}}</a>
+				</li>
+			</ul>
+			<div class="mx-auto text-center">
+				<button *ngIf="this.canGetMoreAlbums" (click)="getAlbumsFromNextPage()" class="btn btn-light"> Voir
+					<fa-icon [icon]="faPlus"> </fa-icon> </button>
 			</div>
 
-			<div *ngIf="!isEmptySearch()" class="col">
-				<h4 class="text-center"> Morceaux</h4>
-				<ul class="mx-auto list-group  list-group-flush justify-content-left">
-					<li class="list-group-item justify-content-left"
-						*ngFor="let track of tracks; let indexTrack = index">
-						<img src={{track.album.cover_small}} class="imgGeneralSearch">
-						<a (click)="sendTrackAndNavigateToTrack(this.track)" routerLink="track">{{shortString(track.title)}}</a>
-					</li>
-				</ul>
-				<div class="mx-auto text-center">
-					<button *ngIf="this.canGetMoreTracks" (click)="getTracksFromNextPage()" class="btn btn-light"> Voir <fa-icon [icon]="faPlus">  </fa-icon> </button>
-				</div>	
-			</div>
-			<div *ngIf="!isEmptySearch()" class="col">
-				<h4 class="text-center"> Albums et Singles </h4>
-				<ul class="mx-auto list-group list-group-flush justify-content-left">
-					<li class="list-group-item justify-content-left"
-						*ngFor="let album of albums; let indexAlbum = index">
-						<img src={{album.cover_small}} class="imgGeneralSearch">
-						<a (click)="sendAlbumAndNavigateToAlbum(this.album)" routerLink="album">{{shortString(album.title)}}</a>
-					</li>
-				</ul>
-				<div class="mx-auto text-center">
-					<button *ngIf="this.canGetMoreAlbums" (click)="getAlbumsFromNextPage()" class="btn btn-light"> Voir <fa-icon [icon]="faPlus">  </fa-icon> </button>
-				</div>
-
-			</div>
-			<div *ngIf="!isEmptySearch()" class="col">
-				<h4 class="text-center"> Playlists</h4>
-				<ul class="mx-auto list-group list-group-flush justify-content-left">
-					<li class="list-group-item justify-content-left"
-						*ngFor="let playlist of playlists; let indexPlaylist = index">
-						<img src={{playlist.picture_small}} class="imgGeneralSearch">
-						<a (click)="sendPlaylistAndNavigateToPlaylist(this.playlist)" routerLink="playlist"> {{shortString(playlist.title)}}</a>
-					</li>
-				</ul>
-				<div class="mx-auto text-center">
-				<button *ngIf="this.canGetMorePlaylists" (click)="getPlaylistsFromNextPage()" class="btn btn-light"> Voir <fa-icon [icon]="faPlus">  </fa-icon> </button>
-				</div>
+		</div>
+		<div *ngIf="!isEmptySearch()" class="col">
+			<h4 class="text-center"> Playlists</h4>
+			<ul class="mx-auto list-group list-group-flush justify-content-left">
+				<li class="list-group-item justify-content-left"
+					*ngFor="let playlist of playlists; let indexPlaylist = index">
+					<img src={{playlist.picture_small}} class="imgGeneralSearch">
+					<a (click)="sendPlaylistAndNavigateToPlaylist(this.playlist)" routerLink="playlist">
+						{{shortString(playlist.title)}}</a>
+				</li>
+			</ul>
+			<div class="mx-auto text-center">
+				<button *ngIf="this.canGetMorePlaylists" (click)="getPlaylistsFromNextPage()" class="btn btn-light">
+					Voir <fa-icon [icon]="faPlus"> </fa-icon> </button>
 			</div>
 		</div>
 	</div>
+</div>

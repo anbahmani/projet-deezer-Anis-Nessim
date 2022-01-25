@@ -15,36 +15,36 @@ import { TrackService } from '../services/track.service';
   styleUrls: ['./chart.component.scss']
 })
 export class ChartComponent implements OnInit {
-  public response:any;
-  public chart!:Chart ;
+  private response: any;
+  public chart!: Chart;
 
-  constructor(private deezerService:DeezerService,private router:Router, private albumService:AlbumService,
-              private artistService:ArtistService, private trackService:TrackService) { }
+  constructor(private deezerService: DeezerService, private router: Router, private albumService: AlbumService,
+    private artistService: ArtistService, private trackService: TrackService) { }
 
   async ngOnInit() {
     const infoChart$ = this.deezerService.getChartInfo();;
     this.response = await firstValueFrom(infoChart$);
-	  this.chart = this.response;
+    this.chart = this.response;
   }
 
-  public async sendAlbumAndNavigateToAlbum(selectedAlbumId : number){
+  public async sendAlbumAndNavigateToAlbum(selectedAlbumId: number) {
     const album$ = this.deezerService.getAlbumFullInfo(selectedAlbumId);;
     this.response = await firstValueFrom(album$);
     this.albumService.setAlbum(this.response);
     this.router.navigateByUrl('/album');
-    }
-  
-    public async sendArtistAndNavigateToArtist(selectedArtistId:number){
-      const artist$ = this.deezerService.getArtistFullInfo(selectedArtistId);;
-      this.response = await firstValueFrom(artist$);
-      this.artistService.setArtist(this.response);
-      this.router.navigateByUrl('/artist');
-    }
+  }
 
-    public async sendTrackAndNavigateToTrack(selectedTrackId:number){
-      const track$ = this.deezerService.getTrackFullInfo(selectedTrackId);;
-      this.response = await firstValueFrom(track$);
-      this.trackService.setTrack(this.response);
-      this.router.navigateByUrl('/track');
-    }
+  public async sendArtistAndNavigateToArtist(selectedArtistId: number) {
+    const artist$ = this.deezerService.getArtistFullInfo(selectedArtistId);;
+    this.response = await firstValueFrom(artist$);
+    this.artistService.setArtist(this.response);
+    this.router.navigateByUrl('/artist');
+  }
+
+  public async sendTrackAndNavigateToTrack(selectedTrackId: number) {
+    const track$ = this.deezerService.getTrackFullInfo(selectedTrackId);;
+    this.response = await firstValueFrom(track$);
+    this.trackService.setTrack(this.response);
+    this.router.navigateByUrl('/track');
+  }
 }

@@ -1,17 +1,19 @@
 <div class="container">
+
   <div class="row">
     <div class="col-md-6">
       <div>
         <img src="{{album.cover_medium}}" id="imgAlbum" class="float-end" />
       </div>
     </div>
+
     <div class="col-md-6">
       <h3 class="text-left">
         {{album.title}}
       </h3>
       <p class="text-left"> <img src="{{album.artist.picture_small}}" id="imgArtist" /> by {{album.artist.name}} </p>
-      <p class="text-left"> {{album.nb_tracks}} titres - {{secondesToMinutes()}} - {{album.fans}} fans </p>
-      <p class="text-left"> <fa-icon [icon]="faCalendar"> </fa-icon> {{dateFr()}}</p>
+      <p class="text-left"> {{album.nb_tracks}} titre(s) - {{secondesToMinutes()}} - {{album.fans}} fans </p>
+      <p class="text-left"> <fa-icon [icon]="faCalendar"> </fa-icon> {{dateRelease()}}</p>
     </div>
   </div>
 
@@ -20,26 +22,28 @@
     </div>
 
     <div class="col-md-auto">
-
       <ul class="mx-auto list-group list-group-flush justify-content-center">
         <li class="list-group-item justify-content-center" *ngFor="let track of album.tracks.data; let indexTrack= index">
           <div class="row">
+            
             <div class="col align-self-center">
-              {{track.title_short}} </div>
+              {{track.title_short}} 
+            </div>
+            
             <div class="col align-self-center">
               {{formatDuration(track)}}
             </div>
+            
             <div class="col align-self-center">
               <audio controls src="{{track?.preview}}" type="audio/mp3" class=""></audio>
             </div>
+
           </div>
-
         </li>
-
       </ul>
     </div>
-    <div class="col col-lg">
-    </div>
+
+    <div class="col col-lg"></div>
   </div>
 
 </div>

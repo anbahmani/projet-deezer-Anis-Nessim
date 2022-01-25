@@ -5,12 +5,12 @@ import { DeezerService } from '../services/deezer.service';
 
 
 @Component({
-  selector: 'app-recherche-genre',
-  templateUrl: './recherche-genre.component.html',
-  styleUrls: ['./recherche-genre.component.scss']
+  selector: 'app-search-genre',
+  templateUrl: './search-genre.component.html',
+  styleUrls: ['./search-genre.component.scss']
 })
-export class RechercheGenreComponent implements OnInit {
-  public response: any;
+export class SearchGenreComponent implements OnInit {
+  private response: any;
   public genres: Genre[] = [];
   public selectedGenre !: Genre;
   constructor(private deezerService:DeezerService) { }
@@ -22,6 +22,6 @@ export class RechercheGenreComponent implements OnInit {
   }
 
   setSelectedGenre(selectedGenre : Genre) {
-	this.selectedGenre = selectedGenre;
+	  this.selectedGenre = selectedGenre;
   }
 }

@@ -17,8 +17,7 @@ import { Tracklist } from '../models/Tracklist';
 export class AlbumComponent implements OnInit {
   public faCalendar = faCalendar;
 
-	public response : any;
-	public response2 : any;
+	private response : any;
 	public album!:Album;
 
 
@@ -41,7 +40,7 @@ export class AlbumComponent implements OnInit {
     return (minutes.concat(secondes));
   }
 
-  public dateFr():string{
+  public dateRelease():string{
     let formattedDt = formatDate(this.album.release_date, 'dd/MM/yyyy', 'en_US');
     return formattedDt;
   }

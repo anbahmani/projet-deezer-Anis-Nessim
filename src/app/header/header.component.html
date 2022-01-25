@@ -29,12 +29,18 @@
 			  <a class="nav-link" routerLink="user-playlists">Mes playlists</a>
 			</div>
 		  </div>
-		  <li class="nav-item justify-content-end">
-			<a *ngIf="this.userService.accessToken == undefined" href="https://connect.deezer.com/oauth/auth.php?app_id=524342&redirect_uri=http://localhost:4200/accueil&perms=basic_access,email"><fa-icon [icon]="faUser"></fa-icon> </a>
-			<a *ngIf="this.userService.accessToken != undefined" href="http://localhost:4200/accueil" (click)="this.userService.accessToken = undefined;"><fa-icon [icon]="faSignOutAlt"></fa-icon> </a>
-		  </li>
 	  </ul>
 	</div>
-
-
+	<div class="navbar-collapse justify-content-end">
+		<ul  class="navbar-nav mr-auto">
+		<li class="nav-item" id="liConnect">
+		  	<a *ngIf="this.userService.accessToken == undefined" href="https://connect.deezer.com/oauth/auth.php?app_id=524342&redirect_uri=http://localhost:4200/accueil&perms=basic_access,email" title="Se connecter">
+				<fa-icon [icon]="faUser" size="2x"></fa-icon> 
+		  	</a>
+		  	<a *ngIf="this.userService.accessToken != undefined" href="http://localhost:4200/accueil" (click)="this.userService.accessToken = undefined;" title="Se déconnecter">
+	    		<fa-icon [icon]="faSignOutAlt" size="2x"></fa-icon> 
+			</a>
+		</li>
+	  </ul>
+	</div>
   </nav>

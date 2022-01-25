@@ -1,44 +1,54 @@
 <h2 class="text-center"> Top titres</h2>
-<ul class="mx-auto list-group list-group-flush">   
-    <li class="list-group-item justify-content-center" *ngFor="let track of chart.tracks.data; let indexTrack= index"
-    (click)="sendTrackAndNavigateToTrack(track.id)">
-      <div class="row">
-        <div class="col align-self-center">
-           <img src="{{track.album.cover}}" /></div>
-        <div class="col align-self-center">
-            {{track.title_short}} </div>
-          <div class="col align-self-center">
-            {{track.artist.name}} </div>
-        <div class="col align-self-center">
-          <audio controls src="{{track?.preview}}" type="audio/mp3" class=""></audio>
-        </div>
-      </div>
-    </li>
-  </ul>
-  <h2 class="text-center"> Top Albums</h2>
-  <ul class="mx-auto list-group list-group-flush ">
-    <li class="list-group-item justify-content-center" *ngFor="let album of chart.albums.data; let indexTrack= index"
-    (click)="sendAlbumAndNavigateToAlbum(album.id)">
-      <div class="row">
-        <div class="col align-self-center">
-            <img src="{{album.cover}}" /></div>
-        <div class="col align-self-center">
-          {{album.title}} </div>
-        <div class="col align-self-center">
-            {{album.artist.name}} </div>  
-      </div>
-    </li>
-  </ul>
 
-  <h2 class="text-center"> Top artistes</h2>
-  <ul class="mx-auto list-group list-group-flush ">
-    <li class="list-group-item justify-content-center" *ngFor="let artist of chart.artists.data; let indexTrack= index"
-    (click)="sendArtistAndNavigateToArtist(artist.id)" >
-      <div class="row">
-        <div class="col align-self-center">
-            <img src="{{artist.picture}}" /></div>
-        <div class="col align-self-center">
-          {{artist.name}} </div>
+<ul class="mx-auto list-group list-group-flush">
+  <li class="list-group-item justify-content-center" *ngFor="let track of chart.tracks.data; let indexTrack= index"
+    (click)="sendTrackAndNavigateToTrack(track.id)">
+    <div class="row">
+      <div class="col align-self-center">
+        <img src="{{track.album.cover}}" />
       </div>
-    </li>
-  </ul>
+      <div class="col align-self-center">
+        {{track.title_short}} 
+      </div>
+      <div class="col align-self-center">
+        {{track.artist.name}} 
+      </div>
+      <div class="col align-self-center">
+        <audio controls src="{{track?.preview}}" type="audio/mp3" class=""></audio>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<h2 class="text-center"> Top Albums</h2>
+<ul class="mx-auto list-group list-group-flush ">
+  <li class="list-group-item justify-content-center" *ngFor="let album of chart.albums.data; let indexTrack= index"
+    (click)="sendAlbumAndNavigateToAlbum(album.id)">
+    <div class="row">
+      <div class="col align-self-center">
+        <img src="{{album.cover}}" />
+      </div>
+      <div class="col align-self-center">
+        {{album.title}} 
+      </div>
+      <div class="col align-self-center">
+        {{album.artist.name}} 
+      </div>
+    </div>
+  </li>
+</ul>
+
+<h2 class="text-center"> Top artistes</h2>
+<ul class="mx-auto list-group list-group-flush ">
+  <li class="list-group-item justify-content-center" *ngFor="let artist of chart.artists.data; let indexTrack= index"
+    (click)="sendArtistAndNavigateToArtist(artist.id)">
+    <div class="row">
+      <div class="col align-self-center">
+        <img src="{{artist.picture}}" />
+      </div>
+      <div class="col align-self-center">
+        {{artist.name}} 
+      </div>
+    </div>
+  </li>
+</ul>

@@ -1,46 +1,52 @@
 <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <div>
-          <img src="{{playlist.picture_medium}}" id="imgPlaylist" class="float-end" />
-        </div>
-      </div>
-      <div class="col-md-6">
-        <h3 class="text-left">
-          {{playlist.title}}
-        </h3>
-        <p class="text-left"> {{playlist.nb_tracks}} titres  </p>
-        <p class="text-left">  <fa-icon [icon]="faUser"> </fa-icon>  {{playlist.creator.name}} </p>
-        <p class="text-left"> <fa-icon [icon]="faCalendar"> </fa-icon> créée le {{dateFr()}}</p>
-        <p class="text-left"> <fa-icon [icon]="faHeart"> </fa-icon> {{playlist.fans}} fans</p>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div>
+        <img src="{{playlist.picture_medium}}" id="imgPlaylist" class="float-end" />
       </div>
     </div>
 
-    <div class="row justify-content-md-center">
-        <div class="col-lg">
-        </div>
-    
-        <div class="col-md-auto">
-    
-          <ul class="mx-auto list-group list-group-flush justify-content-center">
-            <li class="list-group-item justify-content-center" *ngFor="let track of playlist.tracks.data; let indexTrack= index">
-              <div class="row">
-                <div class="col align-self-center">
-                  {{track.title_short}} </div>
-                  <div class="col align-self-center">
-                    {{track.artist.name}} </div>
-                <div class="col align-self-center">
-                  {{formatDuration(track)}}
-                </div>
-                <div class="col align-self-center">
-                  <audio controls src="{{track?.preview}}" type="audio/mp3" class=""></audio>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="col col-lg">
-        </div>
-      </div>
-</div>
+    <div class="col-md-6">
+      <h3 class="text-left">
+        {{playlist.title}}
+      </h3>
+      <p class="text-left"> {{playlist.nb_tracks}} titres </p>
+      <p class="text-left">
+        <fa-icon [icon]="faUser"> </fa-icon> {{playlist.creator.name}}
+      </p>
+      <p class="text-left">
+        <fa-icon [icon]="faCalendar"> </fa-icon> créée le {{dateCreation()}}
+      </p>
+      <p class="text-left">
+        <fa-icon [icon]="faHeart"> </fa-icon> {{playlist.fans}} fans
+      </p>
+    </div>
+  </div>
 
+  <div class="row justify-content-md-center">
+    <div class="col-lg"></div>
+
+    <div class="col-md-auto">
+      <ul class="mx-auto list-group list-group-flush justify-content-center">
+        <li class="list-group-item justify-content-center"
+          *ngFor="let track of playlist.tracks.data; let indexTrack= index">
+          <div class="row">
+            <div class="col align-self-center">
+              {{track.title_short}} </div>
+            <div class="col align-self-center">
+              {{track.artist.name}} </div>
+            <div class="col align-self-center">
+              {{formatDuration(track)}}
+            </div>
+            <div class="col align-self-center">
+              <audio controls src="{{track?.preview}}" type="audio/mp3" class=""></audio>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col col-lg"></div>
+  </div>
+
+</div>

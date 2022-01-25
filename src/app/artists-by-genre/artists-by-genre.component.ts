@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 import { Artist } from '../models/Artist';
@@ -14,9 +14,9 @@ import { DeezerService } from '../services/deezer.service';
 export class ArtistsByGenreComponent implements OnInit {
 
 	@Input() currentGenre !: Genre;
-	artists : Artist[] = [];
-	response : any;
-	numItemsScroll !: number;
+	public artists : Artist[] = [];
+	private response : any;
+	public numItemsScroll !: number;
 
   constructor(private deezerService:DeezerService, private router:Router, private artistService:ArtistService) { }
 

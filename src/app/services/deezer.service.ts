@@ -58,11 +58,6 @@ export class DeezerService {
     return this.http.get(url);
   }
 
-  public getArtistTest(){ 
-    const url:string="http://localhost:8080/https://api.deezer.com/artist/27";
-    return this.http.get(url);
-  }
-
   public getTopByArtist(id:number){ 
     const url:string="http://localhost:8080/https://api.deezer.com/artist/".concat(id.toString().concat("/top"));
     return this.http.get(url);

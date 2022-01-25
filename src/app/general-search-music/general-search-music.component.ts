@@ -28,16 +28,18 @@ export class GeneralSearchMusicComponent implements OnInit {
 	public tracks: Track[] = [];
 	public	albums: Album[] = [];
 	public	playlists: Playlist[] = [];
-	public responseArtists: any;
-	public responseTracks: any;
-	public responseAlbums: any;
-	public responsePlaylists: any;
+
+	private responseArtists: any;
+	private responseTracks: any;
+	private responseAlbums: any;
+	private responsePlaylists: any;
+
 	public canGetMoreArtists:boolean = true;
 	public canGetMoreAlbums:boolean = true;
 	public canGetMoreTracks:boolean = true;
 	public canGetMorePlaylists:boolean = true;
-	searchForm !: FormGroup;
-	emptySearch : boolean = true;
+	public searchForm !: FormGroup;
+	public emptySearch : boolean = true;
 
 	constructor(private fb : FormBuilder, private router: Router, 
 				private deezerService:DeezerService, 

@@ -1,55 +1,56 @@
 <div class="container">
+
   <div class="row justify-content-md-center">
-    <div class="col col-lg-2">
-    </div>
+    <div class="col col-lg-2"> </div>
+    
     <div class="col-md-auto">
       <h3>
-        {{artist.name}}</h3>
+        {{artist.name}}
+      </h3>
     </div>
-    <div class="col col-lg-2">
-    </div>
-  </div>
-  <div class="row justify-content-md-center">
-    <div class="col col-lg-2">
 
-    </div>
+    <div class="col col-lg-2"></div>
+  </div>
+
+  <div class="row justify-content-md-center">
+    <div class="col col-lg-2"></div>
+
     <div class="col-md-auto">
       <img src="{{artist.picture_medium}}" id="imgArtist" />
     </div>
-    <div class="col col-lg-2">
-    </div>
+
+    <div class="col col-lg-2"></div>
   </div>
 <button (click)="addArtistToLibrary()">ajouter artist</button>
   <br><br>
 
   <h3 class="text-center">Populaires</h3>
-
   <div class="row justify-content-md-center">
-    <div class="col-lg">
-    </div>
+    <div class="col-lg"></div>
 
     <div class="col-md-auto">
       <ul class="mx-auto list-group list-group-flush justify-content-center">
-        <li class="list-group-item justify-content-center" *ngFor="let titre of listeTop; let indexTitre= index">
+        <li class="list-group-item justify-content-center" *ngFor="let track of listTop; let indexTrack= index">
+          
           <div class="row">
             <div class="col">
-              <img src="{{titre.album.cover}}" />
-            </div>
-            <div class="col align-self-center">{{titre.title}} </div>
-            <div class="col align-self-center">
-              {{secondesToMinutes(titre)}}s
+              <img src="{{track.album.cover}}" />
             </div>
             <div class="col align-self-center">
-              <audio controls src="{{titre?.preview}}" type="audio/mp3" class=""></audio>
+              {{track.title}} 
+            </div>
+            <div class="col align-self-center">
+              {{secondesToMinutes(track)}}
+            </div>
+            <div class="col align-self-center">
+              <audio controls src="{{track?.preview}}" type="audio/mp3" class=""></audio>
             </div>
           </div>
 
         </li>
-
       </ul>
     </div>
-    <div class="col col-lg">
-    </div>
+    <div class="col col-lg"></div>
   </div>
 </div>
 
@@ -57,25 +58,25 @@
 <h3 class="text-center">Albums et Singles</h3>
 
 <p-carousel *ngIf="albums.length > 5" [value]="albums" [numVisible]="5" [numScroll]="5" [circular]=true>
-	<ng-template let-album pTemplate="item">
-		<div (click)="sendAlbumAndNavigateToAlbum(album)" class="card" id="card">
-			<button>
-			<img class="card-img-top img-fluid" src={{album.cover_big}} alt="Card image cap">
-			<p class="card-text text-center">{{shortString(album.title)}}</p>
-			</button>
-		</div>
-	</ng-template>
+  <ng-template let-album pTemplate="item">
+    <div (click)="sendAlbumAndNavigateToAlbum(album)" class="card" id="card">
+      <button>
+        <img class="card-img-top img-fluid" src={{album.cover_big}} alt="Card image cap">
+        <p class="card-text text-center">{{shortString(album.title)}}</p>
+      </button>
+    </div>
+  </ng-template>
 </p-carousel>
 
 <div *ngIf="albums.length <= 5">
-  <ul class="list-inline" >
-  <li class="list-inline-item" *ngFor="let album of albums; let indexAlbums = index">
-    <div (click)="sendAlbumAndNavigateToAlbum(album)" class="card">
-      <button>
-        <img class="card-img-top img-fluid" src={{album.cover_medium}}>
-        <p class="card-text text-center">{{album.title}}</p>
-      </button>
-    </div>
-  </li>
+  <ul class="list-inline">
+    <li class="list-inline-item" *ngFor="let album of albums; let indexAlbums = index">
+      <div (click)="sendAlbumAndNavigateToAlbum(album)" class="card">
+        <button>
+          <img class="card-img-top img-fluid" src={{album.cover_medium}}>
+          <p class="card-text text-center">{{album.title}}</p>
+        </button>
+      </div>
+    </li>
   </ul>
 </div>
