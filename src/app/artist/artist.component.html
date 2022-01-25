@@ -68,12 +68,14 @@
 </p-carousel>
 
 <div *ngIf="albums.length <= 5">
-	<div *ngFor="let album of albums; let indexAlbums = index">
-		<div (click)="sendAlbumAndNavigateToAlbum(album)" class="card" id="card">
-			<button>
-			<img class="card-img-top img-fluid" src={{album.cover_big}} alt="Card image cap">
-			<p class="card-text text-center">{{shortString(album.title)}}</p>
-			</button>
-		</div>
-	</div>
+  <ul class="list-inline" >
+  <li class="list-inline-item" *ngFor="let album of albums; let indexAlbums = index">
+    <div (click)="sendAlbumAndNavigateToAlbum(album)" class="card">
+      <button>
+        <img class="card-img-top img-fluid" src={{album.cover_medium}}>
+        <p class="card-text text-center">{{album.title}}</p>
+      </button>
+    </div>
+  </li>
+  </ul>
 </div>
