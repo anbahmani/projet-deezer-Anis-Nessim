@@ -44,5 +44,9 @@ export class AlbumComponent implements OnInit {
     let formattedDt = formatDate(this.album.release_date, 'dd/MM/yyyy', 'en_US');
     return formattedDt;
   }
+
+  public addAlbumToLibrary(){
+	
+  }
 }
 

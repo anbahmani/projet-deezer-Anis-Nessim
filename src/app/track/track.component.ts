@@ -32,10 +32,12 @@ export class TrackComponent implements OnInit {
     return (minutes.concat(secondes));
 }
 
-public dateRelease():string{
+  public dateRelease():string{
+  	let formattedDt = formatDate(this.track.album.release_date, 'dd/MM/yyyy', 'en_US');
+  	return formattedDt;
+  }
 
-  let formattedDt = formatDate(this.track.album.release_date, 'dd/MM/yyyy', 'en_US');
-  return formattedDt;
-}
-
+  public addTrackToLibrary(){
+	
+  }
 }

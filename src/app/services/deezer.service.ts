@@ -103,4 +103,40 @@ export class DeezerService {
 	  				.subscribe();
 	  }
   }
+
+  public addAlbumToUserLibrary(userId : number, albumId : number, accessToken : string | undefined){
+	if (accessToken != undefined){
+		this.http.post('http://localhost:8080/https://api.deezer.com/user/'
+					.concat(userId.toString())
+					.concat('/albums')
+					.concat('?access_token=').concat(accessToken)
+					.concat('&album_id=').concat(albumId.toString()), null)
+	  				.subscribe();
+	  }
+  }
+
+
+	public addTrackToUserLibrary(userId : number, trackId : number, accessToken : string | undefined){
+	if (accessToken != undefined){
+		this.http.post('http://localhost:8080/https://api.deezer.com/user/'
+					.concat(userId.toString())
+					.concat('/tracks')
+					.concat('?access_token=').concat(accessToken)
+					.concat('&track_id=').concat(trackId.toString()), null)
+	  				.subscribe();
+	  }
+  }
+
+
+	public addPlaylistToUserLibrary(userId : number, playlistId : number, accessToken : string | undefined){
+	if (accessToken != undefined){
+		this.http.post('http://localhost:8080/https://api.deezer.com/user/'
+					.concat(userId.toString())
+					.concat('/playlists')
+					.concat('?access_token=').concat(accessToken)
+					.concat('&playlist_id=').concat(playlistId.toString()), null)
+	  				.subscribe();
+	  }
+  }
 }
+

@@ -39,4 +39,8 @@ export class PlaylistComponent implements OnInit {
     return (minutes.concat(secondes));
   }
 
+  public addPlaylistToLibrary(){
+	
+  }
+
 }
