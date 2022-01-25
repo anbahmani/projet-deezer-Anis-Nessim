@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
 import { AlbumComponent } from './album/album.component';
 import { ArtistComponent } from './artist/artist.component';
+import { ChartComponent } from './chart/chart.component';
 import { ErrorComponent } from './error/error.component';
 import { GeneralSearchMusicComponent } from './general-search-music/general-search-music.component';
 import { PlaylistComponent } from './playlist/playlist.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:'album', component: AlbumComponent},
   {path:'track', component: TrackComponent},
   {path:'playlist', component: PlaylistComponent},
+  {path:'chart', component: ChartComponent},
   {path:'error', component:ErrorComponent},
   {path:'', redirectTo:'/accueil', pathMatch:'full'}, 
   {path:'**', redirectTo:'/error'}

@@ -6,6 +6,7 @@ import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 import { AlbumService } from '../services/album.service';
 import { DeezerService } from '../services/deezer.service';
 import { Track } from '../models/Track';
+import { Tracklist } from '../models/Tracklist';
 
 
 @Component({
@@ -19,22 +20,25 @@ export class AlbumComponent implements OnInit {
 	public response : any;
 	public response2 : any;
 	public album!:Album;
-	public trackList:Track[] = [];
+
 
   constructor(private deezerService:DeezerService, private albumService:AlbumService) { }
 
   async ngOnInit() {
     const infoAlbum$ = this.deezerService.getAlbumFullInfo(this.albumService.getAlbum().id);;
     this.response = await firstValueFrom(infoAlbum$);
-	this.album = this.response;
-	const trackList$ = this.deezerService.getTrackList(this.album.tracklist);
-	this.response2 = await firstValueFrom(trackList$);
-	this.trackList = this.response2.data;
+	  this.album = this.response;
   }
 
   public secondesToMinutes(): string{
     let minutes = Math.floor(this.album.duration / 60).toString().concat(" min");
     return minutes;
+  }
+
+  public formatDuration(track:Track): string{
+    let minutes = Math.floor(track.duration / 60).toString().concat("min ");
+    let secondes = (track.duration % 60).toString();
+    return (minutes.concat(secondes));
   }
 
   public dateFr():string{

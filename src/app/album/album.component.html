@@ -22,12 +22,12 @@
     <div class="col-md-auto">
 
       <ul class="mx-auto list-group list-group-flush justify-content-center">
-        <li class="list-group-item justify-content-center" *ngFor="let track of trackList; let indexTrack= index">
+        <li class="list-group-item justify-content-center" *ngFor="let track of album.tracks.data; let indexTrack= index">
           <div class="row">
             <div class="col align-self-center">
               {{track.title_short}} </div>
             <div class="col align-self-center">
-              {{track.duration}}s
+              {{formatDuration(track)}}
             </div>
             <div class="col align-self-center">
               <audio controls src="{{track?.preview}}" type="audio/mp3" class=""></audio>

@@ -20,6 +20,7 @@ import { PlaylistComponent } from './playlist/playlist.component';
 import {AccordionModule} from 'primeng/accordion';
 import {CarouselModule} from 'primeng/carousel';
 import { DatePipe } from '@angular/common';
+import { ChartComponent } from './chart/chart.component';
 
 
 
@@ -36,7 +37,8 @@ import { DatePipe } from '@angular/common';
     ArtistComponent,
     TrackComponent,
     AlbumComponent,
-    PlaylistComponent
+    PlaylistComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,

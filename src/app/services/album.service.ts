@@ -15,4 +15,6 @@ export class AlbumService {
 	public setAlbum(album : Album) {
 		this.album = album;
 	}
+
+	
 }

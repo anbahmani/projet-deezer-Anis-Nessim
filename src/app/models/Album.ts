@@ -1,5 +1,5 @@
 import { Artist } from "./Artist";
-import { Track } from "./Track";
+import { Tracklist } from "./Tracklist";
 
 export interface Album{
 	id : number;
@@ -18,6 +18,5 @@ export interface Album{
 	fans:number;
 	release_date:Date;
 	duration:number;
-	tracks:	Track[];
-	tracklist:URL;
+	tracks:	Tracklist;
 }

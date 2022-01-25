@@ -1,3 +1,4 @@
+import { Tracklist } from "./Tracklist";
 
 
 export interface Playlist {
@@ -17,5 +18,5 @@ export interface Playlist {
 	description:string;
 	duration:number;
 	fans:number;
-	tracks:any;
+	tracks:Tracklist;
 }
