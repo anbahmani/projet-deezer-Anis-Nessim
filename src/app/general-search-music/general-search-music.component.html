@@ -3,7 +3,7 @@
 		<legend> Recherche <fa-icon [icon]="faSearch"> </fa-icon>
 		</legend>
 		<input type="text" (keyup)="onKeypressEvent($event)" class="form-control" id="search" placeholder="Recherche"
-			formControlName="search">
+formControlName="search">
 	</fieldset>
 </form>
 <br><br>
@@ -29,7 +29,7 @@
 					<li class="list-group-item justify-content-left"
 						*ngFor="let track of tracks; let indexTrack = index">
 						<img src={{track.album.cover_small}} class="imgGeneralSearch">
-						<a (click)="sendTrackAndNavigateToTrack(this.track)">{{shortString(track.title)}}</a>
+						<a (click)="sendTrackAndNavigateToTrack(this.track)" routerLink="track">{{shortString(track.title)}}</a>
 					</li>
 				</ul>
 				<div class="mx-auto text-center">
@@ -42,7 +42,7 @@
 					<li class="list-group-item justify-content-left"
 						*ngFor="let album of albums; let indexAlbum = index">
 						<img src={{album.cover_small}} class="imgGeneralSearch">
-						<a (click)="sendAlbumAndNavigateToAlbum(this.album)">{{shortString(album.title)}}</a>
+						<a (click)="sendAlbumAndNavigateToAlbum(this.album)" routerLink="album">{{shortString(album.title)}}</a>
 					</li>
 				</ul>
 				<div class="mx-auto text-center">
@@ -56,7 +56,7 @@
 					<li class="list-group-item justify-content-left"
 						*ngFor="let playlist of playlists; let indexPlaylist = index">
 						<img src={{playlist.picture_small}} class="imgGeneralSearch">
-						<a (click)="sendPlaylistAndNavigateToPlaylist(this.playlist)"> {{shortString(playlist.title)}}</a>
+						<a (click)="sendPlaylistAndNavigateToPlaylist(this.playlist)" routerLink="playlist"> {{shortString(playlist.title)}}</a>
 					</li>
 				</ul>
 				<div class="mx-auto text-center">

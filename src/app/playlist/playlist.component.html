@@ -27,16 +27,16 @@
               <div class="row">
                 <div class="col align-self-center">
                   {{track.title_short}} </div>
+                  <div class="col align-self-center">
+                    {{track.artist.name}} </div>
                 <div class="col align-self-center">
-                  {{track.duration}}s
+                  {{formatDuration(track)}}s
                 </div>
                 <div class="col align-self-center">
                   <audio controls src="{{track?.preview}}" type="audio/mp3" class=""></audio>
                 </div>
               </div>
-    
             </li>
-    
           </ul>
         </div>
         <div class="col col-lg">

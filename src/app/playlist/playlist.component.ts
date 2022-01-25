@@ -5,6 +5,7 @@ import { PlaylistService } from '../services/playlist.service';
 import { faUser,faCalendar,faHeart} from '@fortawesome/free-solid-svg-icons';
 import { formatDate } from '@angular/common';
 import { firstValueFrom } from 'rxjs';
+import { Track } from '../models/Track';
 
 @Component({
   selector: 'app-playlist',
@@ -30,6 +31,12 @@ export class PlaylistComponent implements OnInit {
   public dateFr():string{
     let formattedDt = formatDate(this.playlist.creation_date, 'dd/MM/yyyy', 'en_US');
     return formattedDt;
+  }
+
+  public formatDuration(track:Track): string{
+    let minutes = Math.floor(track.duration / 60).toString().concat("min ");
+    let secondes = (track.duration % 60).toString();
+    return (minutes.concat(secondes));
   }
 
 }
