@@ -77,12 +77,18 @@ export class GeneralSearchMusicComponent implements OnInit {
 		const obs_tracks$ = this.deezerService.getTracksByName(event.target.value);
    		this.responseTracks = await firstValueFrom(obs_tracks$);
    		this.tracks = this.responseTracks.data;
+		   if (this.responseTracks.next == undefined)
+			this.canGetMoreTracks = false;
 		const obs_albums$ = this.deezerService.getAlbumsByName(event.target.value);
    		this.responseAlbums = await firstValueFrom(obs_albums$);
    		this.albums = this.responseAlbums.data;
+		   if (this.responseAlbums.next == undefined)
+			this.canGetMoreAlbums = false;
 		const obs_playslits$ = this.deezerService.getPlaylistsByName(event.target.value);
    		this.responsePlaylists = await firstValueFrom(obs_playslits$);
    		this.playlists = this.responsePlaylists.data;
+		   if (this.responsePlaylists.next == undefined)
+			this.canGetMorePlaylists = false;
 	}
 
 	public sendArtistAndNavigateToArtist(selectedArtist:Artist){

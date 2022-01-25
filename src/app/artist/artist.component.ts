@@ -49,5 +49,5 @@ export class ArtistComponent implements OnInit {
 
   public	shortString(str:string) : string{
 	return (str.length > 20) ? str.slice(0, 19).concat("...") : str;
-}
+  }
 }
