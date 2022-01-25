@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
+import { User } from '../models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,7 @@ import { firstValueFrom } from 'rxjs';
 export class UserService {
 
 	public accessToken!:string|undefined;
+	public user!:User;
 
   constructor(private http:HttpClient) { }
 
@@ -23,5 +25,14 @@ export class UserService {
 	  );
 	return this.http.post('http://localhost:8080/https://connect.deezer.com/oauth/access_token.php', params.toString(),
 	 { headers: headers, responseType: 'text'})
+	}
+
+	public getCurrentUser(){
+		if(this.accessToken != undefined)
+		{
+			var url : string = "http://localhost:8080/https://api.deezer.com/user/me?access_token=".concat(this.accessToken.toString());
+    		return this.http.get<User>(url);
+		}
+		return undefined;
 	}
 }

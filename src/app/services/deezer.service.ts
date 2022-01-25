@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -96,5 +96,16 @@ export class DeezerService {
 
   public getResponseFromUrl(request:URL){
 	return this.http.get("http://localhost:8080/".concat(request.toString()));
+  }
+
+  public addArtistToUserLibrary(userId : number, artistId : number, accessToken : string | undefined){
+	if (accessToken != undefined){
+		this.http.post('http://localhost:8080/https://api.deezer.com/user/'
+					.concat(userId.toString())
+					.concat('/artists')
+					.concat('?access_token=').concat(accessToken)
+					.concat('&artist_id=').concat(artistId.toString()), null)
+	  				.subscribe();
+	  }
   }
 }

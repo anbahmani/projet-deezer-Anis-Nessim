@@ -28,9 +28,13 @@ export class AccueilComponent implements OnInit {
     params.append('app_id', "524342");
     params.append('secret', "fb9c36712711e050599dd49fe79c3e3d");
     params.append('code', accessCode);
-	const response = this.userService.getAccesToken(params);
-	const data = await firstValueFrom(response);
-	let accessToken = data.substring(data.indexOf("=") + 1, data.lastIndexOf("&"));
-	this.userService.accessToken = accessToken;
+	const responseAccessToken = this.userService.getAccesToken(params);
+	const dataAccessToken = await firstValueFrom(responseAccessToken);
+	this.userService.accessToken = dataAccessToken.substring(dataAccessToken.indexOf("=") + 1, dataAccessToken.lastIndexOf("&"));
+	const responseUser = this.userService.getCurrentUser();
+	if (responseUser != undefined){
+		const dataUser = await firstValueFrom(responseUser);
+		this.userService.user = dataUser;
+	}
   }
 }

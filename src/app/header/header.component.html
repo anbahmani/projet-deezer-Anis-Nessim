@@ -20,6 +20,15 @@
 		  <li class="nav-item">
 			<a class="nav-link" id="link-menu" routerLink="chart"> Chart </a>
 		  </li>
+		  <div class="dropdown nav-item">
+			<button class="dropbtn">Ma bibliothèque</button>
+			<div class="dropdown-content">
+			  <a class="nav-link" routerLink="user-artists">Mes artistes</a>
+			  <a class="nav-link" routerLink="user-albums">Mes albums</a>
+			  <a class="nav-link" routerLink="user-tracks">Mes morceaux</a>
+			  <a class="nav-link" routerLink="user-playlists">Mes playlists</a>
+			</div>
+		  </div>
 		  <li class="nav-item justify-content-end">
 			<a *ngIf="this.userService.accessToken == undefined" href="https://connect.deezer.com/oauth/auth.php?app_id=524342&redirect_uri=http://localhost:4200/accueil&perms=basic_access,email"><fa-icon [icon]="faUser"></fa-icon> </a>
 			<a *ngIf="this.userService.accessToken != undefined" href="http://localhost:4200/accueil" (click)="this.userService.accessToken = undefined;"><fa-icon [icon]="faSignOutAlt"></fa-icon> </a>

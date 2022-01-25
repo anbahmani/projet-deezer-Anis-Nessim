@@ -8,6 +8,7 @@ import { Track } from '../models/Track';
 import { ArtistService } from '../services/artist.service';
 import { Album } from '../models/Album';
 import { AlbumService } from '../services/album.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-artist',
@@ -22,9 +23,11 @@ export class ArtistComponent implements OnInit {
   public listeTop!: Track[];
   public albums!:Album[];
 
-  constructor(private deezerService:DeezerService,private router:Router, private artistService:ArtistService, private albumService:AlbumService) {
-
-   }
+  constructor(	private deezerService:DeezerService,
+				private router:Router, 
+				private artistService:ArtistService, 
+				private albumService:AlbumService,
+				private userService:UserService) {}
 
   async ngOnInit() {
     this.artist = this.artistService.getArtist();
@@ -47,7 +50,12 @@ export class ArtistComponent implements OnInit {
 	this.router.navigateByUrl('/album');
   }
 
-  public	shortString(str:string) : string{
+  public shortString(str:string) : string{
 	return (str.length > 20) ? str.slice(0, 19).concat("...") : str;
+  }
+
+  public async addArtistToLibrary(){
+	  console.log(this.userService.user);
+	this.deezerService.addArtistToUserLibrary(this.userService.user.id, this.artist.id, this.userService.accessToken);
   }
 }
