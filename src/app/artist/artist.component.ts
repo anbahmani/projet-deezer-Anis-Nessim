@@ -31,7 +31,7 @@ export class ArtistComponent implements OnInit {
     const liste$ = this.deezerService.getTopByArtist(+(this.artist.id));
     this.response = await firstValueFrom(liste$);
     this.listeTop = this.response.data;
-	const listeAlbums$ = this.deezerService.getAlbumsByArtist(+(this.artist.id));
+	  const listeAlbums$ = this.deezerService.getAlbumsByArtist(+(this.artist.id));
     this.response2 = await firstValueFrom(listeAlbums$);
     this.albums = this.response2.data;
   }

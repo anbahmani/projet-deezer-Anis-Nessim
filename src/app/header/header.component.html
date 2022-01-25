@@ -20,10 +20,12 @@
 		  <li class="nav-item">
 			<a class="nav-link" id="link-menu" routerLink="chart"> Chart </a>
 		  </li>
+		  <li class="nav-item justify-content-end">
+			<a *ngIf="this.userService.accessToken == undefined" href="https://connect.deezer.com/oauth/auth.php?app_id=524342&redirect_uri=http://localhost:4200/accueil&perms=basic_access,email"><fa-icon [icon]="faUser"></fa-icon> </a>
+			<a *ngIf="this.userService.accessToken != undefined" href="http://localhost:4200/accueil" (click)="this.userService.accessToken = undefined;"><fa-icon [icon]="faSignOutAlt"></fa-icon> </a>
+		  </li>
 	  </ul>
 	</div>
 
-	<i class="fas fa-search"></i>
-	<a *ngIf="this.userService.accessToken == undefined" href="https://connect.deezer.com/oauth/auth.php?app_id=524342&redirect_uri=http://localhost:4200/accueil&perms=basic_access,email">Se connecter</a>
-	<a *ngIf="this.userService.accessToken != undefined" href="http://localhost:4200/accueil" (click)="this.userService.accessToken = undefined;">Se déconnecter</a>
+
   </nav>

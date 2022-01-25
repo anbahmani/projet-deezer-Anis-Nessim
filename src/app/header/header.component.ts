@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { firstValueFrom } from 'rxjs';
+import { faUser, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -9,6 +9,9 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
+  public faUser = faUser;
+  public faSignOutAlt = faSignOutAlt;
 
   constructor(public userService:UserService, private router: Router) {}
 
