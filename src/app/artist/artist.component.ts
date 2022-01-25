@@ -28,7 +28,6 @@ export class ArtistComponent implements OnInit {
 
   async ngOnInit() {
     this.artist = this.artistService.getArtist();
-	console.log(this.artistService.getArtist());
     const liste$ = this.deezerService.getTopByArtist(+(this.artist.id));
     this.response = await firstValueFrom(liste$);
     this.listeTop = this.response.data;
@@ -47,4 +46,8 @@ export class ArtistComponent implements OnInit {
 	this.albumService.setAlbum(selectedAlbum);
 	this.router.navigateByUrl('/album');
   }
+
+  public	shortString(str:string) : string{
+	return (str.length > 20) ? str.slice(0, 19).concat("...") : str;
+}
 }

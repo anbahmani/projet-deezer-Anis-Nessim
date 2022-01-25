@@ -13,6 +13,7 @@ import { AlbumService } from '../services/album.service';
 import { TrackService } from '../services/track.service';
 import { PlaylistService } from '../services/playlist.service';
 
+
 @Component({
   selector: 'app-general-search-music',
   templateUrl: './general-search-music.component.html',
@@ -146,5 +147,9 @@ export class GeneralSearchMusicComponent implements OnInit {
 			this.playlists = this.playlists.concat(newPLaylists);
 			this.canGetMorePlaylists = this.checkNextFromResponse(this.responsePlaylists.next);
 		}
+	}
+
+	public	shortString(str:string) : string{
+		return (str.length > 20) ? str.slice(0, 19).concat("...") : str;
 	}
 }
