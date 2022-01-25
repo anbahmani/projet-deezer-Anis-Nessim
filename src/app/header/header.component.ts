@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
 	connectionPage!:any;
 	response!:any;
 
-  constructor() {}
+  constructor(private userService:UserService) {}
 
   ngOnInit(): void {
   }
