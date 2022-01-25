@@ -20,6 +20,9 @@ import {AccordionModule} from 'primeng/accordion';
 import {CarouselModule} from 'primeng/carousel';
 import { DatePipe } from '@angular/common';
 import { ChartComponent } from './chart/chart.component';
+import { UserArtistsComponent } from './user-artists/user-artists.component';
+import { UserAlbumsComponent } from './user-albums/user-albums.component';
+import { UserTracksComponent } from './user-tracks/user-tracks.component';
 
 
 
@@ -37,7 +40,10 @@ import { ChartComponent } from './chart/chart.component';
     TrackComponent,
     AlbumComponent,
     PlaylistComponent,
-    ChartComponent
+    ChartComponent,
+    UserArtistsComponent,
+    UserAlbumsComponent,
+    UserTracksComponent
   ],
   imports: [
     BrowserModule,
