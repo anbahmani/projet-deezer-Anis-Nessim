@@ -7,7 +7,7 @@ import { firstValueFrom } from 'rxjs';
 })
 export class UserService {
 
-	public accessToken!:string;
+	public accessToken!:string|undefined;
 
   constructor(private http:HttpClient) { }
 
@@ -24,8 +24,4 @@ export class UserService {
 	return this.http.post('http://localhost:8080/https://connect.deezer.com/oauth/access_token.php', params.toString(),
 	 { headers: headers, responseType: 'text'})
 	}
-
-  public setAccessToken(accessToken:string){
-	this.accessToken = accessToken;
-  }
 }

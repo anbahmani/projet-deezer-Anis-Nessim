@@ -11,14 +11,16 @@ import { UserService } from '../services/user.service';
 })
 export class AccueilComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private userService:UserService) { }
+  constructor(private route: ActivatedRoute, private userService:UserService, private router: Router) { }
 
   ngOnInit(): void {
+	  if (this.router.url.toString().startsWith("/accueil?code=") && this.userService.accessToken == undefined){
 		this.route.queryParams
 		.subscribe(params => {
 			this.getAccessToken(params['code']);
 		}
  	 );
+	}
   }
 
   public async getAccessToken(accessCode:string){
@@ -29,7 +31,6 @@ export class AccueilComponent implements OnInit {
 	const response = this.userService.getAccesToken(params);
 	const data = await firstValueFrom(response);
 	let accessToken = data.substring(data.indexOf("=") + 1, data.lastIndexOf("&"));
-	this.userService.setAccessToken(accessToken);
-	console.log(this.userService.accessToken);
+	this.userService.accessToken = accessToken;
   }
 }

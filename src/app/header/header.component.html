@@ -21,5 +21,6 @@
 	</div>
 
 	<i class="fas fa-search"></i>
-	<a href="https://connect.deezer.com/oauth/auth.php?app_id=524342&redirect_uri=http://localhost:4200/accueil&perms=basic_access,email">Connexion</a>
+	<a *ngIf="this.userService.accessToken == undefined" href="https://connect.deezer.com/oauth/auth.php?app_id=524342&redirect_uri=http://localhost:4200/accueil&perms=basic_access,email">Se connecter</a>
+	<a *ngIf="this.userService.accessToken != undefined" href="http://localhost:4200/accueil" (click)="this.userService.accessToken = undefined;">Se déconnecter</a>
   </nav>
