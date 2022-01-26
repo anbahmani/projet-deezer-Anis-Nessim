@@ -1,9 +1,0 @@
-<h2 class="text-center">Mes Playlists</h2>
-<div class="grid">
-	<ng-container *ngFor="let playlist of playlists; let indexPlaylist = index">
-			<div class="card" >
-				<img class="card-img-top rounded" (click)="sendPlaylistAndNavigateToPlaylist(playlist)" src={{playlist.picture_medium}}>
-				<h5 class="card-text text-center" (click)="sendPlaylistAndNavigateToPlaylist(playlist)">{{shortString(playlist.title)}}</h5>
-			</div>
-	</ng-container>
-</div>

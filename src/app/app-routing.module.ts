@@ -13,7 +13,7 @@ import { TrackComponent } from './track/track.component';
 import { UserArtistsComponent } from './user-artists/user-artists.component';
 import { UserTracksComponent } from './user-tracks/user-tracks.component';
 import { UserAlbumsComponent } from './user-albums/user-albums.component';
-import { UserPlaylistsComponent } from './user-playlists/user-playlists.component';
+
 
 const routes: Routes = [
   {path:'accueil', component: AccueilComponent},
@@ -27,7 +27,6 @@ const routes: Routes = [
   {path:'user-artists', component: UserArtistsComponent},
   {path:'user-tracks', component: UserTracksComponent},
   {path:'user-albums', component: UserAlbumsComponent},
-  {path:'user-playlists', component: UserPlaylistsComponent},
   {path:'error', component:ErrorComponent},
   {path:'', redirectTo:'/accueil', pathMatch:'full'}, 
   {path:'**', redirectTo:'/error'}

@@ -130,16 +130,6 @@ export class DeezerService {
   }
 
 
-  public addPlaylistToUserLibrary(userId : number, playlistId : number, accessToken : string | undefined){
-	if (accessToken != undefined){
-		this.http.post('http://localhost:8080/https://api.deezer.com/user/'
-					.concat(userId.toString())
-					.concat('/playlists')
-					.concat('?access_token=').concat(accessToken)
-					.concat('&playlist_id=').concat(playlistId.toString()), null)
-	  				.subscribe();
-	  }
-  }
 
   public getArtistsFromUserLibrary(accessToken : string | undefined){
 	if (accessToken != undefined){
@@ -165,14 +155,6 @@ export class DeezerService {
 	return undefined;
   }
 
-  public getPlaylistsFromUserLibrary(accessToken : string | undefined){
-	if (accessToken != undefined){
-		alert('t')
-		return this.http.get('http://localhost:8080/https://api.deezer.com/user/me/playlists'
-						.concat('?access_token=').concat(accessToken))
-	}
-	return undefined;
-  }
 
   public removeArtistFromUserLibrary(userId : number, artistId : number, accessToken : string | undefined){
 	if (accessToken != undefined){
@@ -207,15 +189,5 @@ export class DeezerService {
 	  }
   }
 
-  public removePlaylistFromUserLibrary(userId : number, playlistId : number, accessToken : string | undefined){
-	if (accessToken != undefined){
-		this.http.delete('http://localhost:8080/https://api.deezer.com/user/'
-					.concat(userId.toString())
-					.concat('/playlists')
-					.concat('?access_token=').concat(accessToken)
-					.concat('&playlist_id=').concat(playlistId.toString()))
-	  				.subscribe();
-	  }
-  }
 }
 
