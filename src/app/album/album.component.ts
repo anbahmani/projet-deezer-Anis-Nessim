@@ -24,7 +24,7 @@ export class AlbumComponent implements OnInit {
 
   constructor(	private deezerService:DeezerService,
 				private albumService:AlbumService,
-				private userService:UserService) { }
+				public userService:UserService) { }
 
   async ngOnInit() {
     const infoAlbum$ = this.deezerService.getAlbumFullInfo(this.albumService.getAlbum().id);;

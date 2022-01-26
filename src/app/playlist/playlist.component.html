@@ -22,7 +22,7 @@
         <fa-icon [icon]="faHeart"> </fa-icon> {{playlist.fans}} fans
       </p>
       <p class="text-left">
-        <button  (click)="addPlaylistToLibrary()" class="btn btn-outline-dark">  Ajouter dans mes playlists  <fa-icon [icon]="faHeart"> </fa-icon></button>
+        <button *ngIf="this.userService.accessToken != undefined" (click)="addPlaylistToLibrary()" class="btn btn-outline-dark">  Ajouter dans mes playlists  <fa-icon [icon]="faHeart"> </fa-icon></button>
       </p>
     </div>
   </div>

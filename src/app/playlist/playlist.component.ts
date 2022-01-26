@@ -23,7 +23,7 @@ export class PlaylistComponent implements OnInit {
 
   constructor(	private deezerService: DeezerService,
 				private playlistService: PlaylistService,
-				private userService:UserService) { }
+				public userService:UserService) { }
 
   async ngOnInit() {
     const infoPlaylist$ = this.deezerService.getPlaylistFullInfo(this.playlistService.getPlaylist().id);

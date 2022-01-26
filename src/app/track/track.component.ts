@@ -23,7 +23,7 @@ export class TrackComponent implements OnInit {
 
   constructor(	private deezerService:DeezerService,
 				private trackService:TrackService,
-				private userService:UserService) {}
+				public userService:UserService) {}
 
   async ngOnInit() {
     const infoTrack$ =this.deezerService.getTrackFullInfo(this.trackService.getTrack().id);

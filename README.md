@@ -2,6 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.
 
+## Package installation
+
+Run `npm install`.
+
+Run `npm install @fortawesome/fontawesome-svg-core --save`, `npm install @fortawesome/free-solid-svg-icons --save`,
+`npm install @fortawesome/free-regular-svg-icons --save` and `npm install @fortawesome/free-brands-svg-icons --save` to
+install fontawesome packages.
+
+Run `npm install primeng --save` and `npm install primeicons --save` to install primeng packages.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

@@ -27,7 +27,7 @@ export class ArtistComponent implements OnInit {
 				private router:Router, 
 				private artistService:ArtistService, 
 				private albumService:AlbumService,
-				private userService:UserService) {}
+				public userService:UserService) {}
 
   async ngOnInit() {
     this.artist = this.artistService.getArtist();

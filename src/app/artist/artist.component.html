@@ -24,7 +24,7 @@
   </div>
 
   <div class="text-center" id="divBtn">
-    <button (click)="addArtistToLibrary()" class="btn btn-outline-dark">S'abonner </button>
+    <button *ngIf="this.userService.accessToken != undefined" (click)="addArtistToLibrary()" class="btn btn-outline-dark">S'abonner </button>
   </div>
 
 
