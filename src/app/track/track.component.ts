@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Track } from '../models/Track';
 import { DeezerService } from '../services/deezer.service';
 import { TrackService } from '../services/track.service';
-import { faHourglass,faCalendar} from '@fortawesome/free-solid-svg-icons';
+import { faHourglass,faCalendar, faHeart} from '@fortawesome/free-solid-svg-icons';
 import { firstValueFrom } from 'rxjs';
 
 @Component({
@@ -14,6 +14,8 @@ import { firstValueFrom } from 'rxjs';
 export class TrackComponent implements OnInit {
   public faHourglass = faHourglass;
   public faCalendar = faCalendar;
+  public faHeart = faHeart;
+  
 
 	public track !: Track;
   private response:any;

@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="row">
+  <div class="row" id="divAlbum">
     <div class="col-md-6">
       <div>
         <img src="{{album.cover_medium}}" id="imgAlbum" class="float-end" />
@@ -14,10 +14,11 @@
       <p class="text-left"> <img src="{{album.artist.picture_small}}" id="imgArtist" /> by {{album.artist.name}} </p>
       <p class="text-left"> {{album.nb_tracks}} titre(s) - {{secondesToMinutes()}} - {{album.fans}} fans </p>
       <p class="text-left"> <fa-icon [icon]="faCalendar"> </fa-icon> {{dateRelease()}}</p>
+      <p class="text-left">
+        <button  (click)="addAlbumToLibrary()" class="btn btn-outline-dark">  Ajouter dans mes albums <fa-icon [icon]="faHeart"> </fa-icon></button>
+      </p>
     </div>
   </div>
-
-  <button (click)="addAlbumToLibrary()">ajouter artist</button>
 
   <div class="row justify-content-md-center">
     <div class="col-lg">

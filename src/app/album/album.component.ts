@@ -2,11 +2,10 @@ import {  formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { Album } from '../models/Album';
-import { faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { AlbumService } from '../services/album.service';
 import { DeezerService } from '../services/deezer.service';
 import { Track } from '../models/Track';
-import { Tracklist } from '../models/Tracklist';
 
 
 @Component({
@@ -16,6 +15,7 @@ import { Tracklist } from '../models/Tracklist';
 })
 export class AlbumComponent implements OnInit {
   public faCalendar = faCalendar;
+  public faHeart = faHeart;
 
 	private response : any;
 	public album!:Album;

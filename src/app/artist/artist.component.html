@@ -19,10 +19,14 @@
       <img src="{{artist.picture_medium}}" id="imgArtist" />
     </div>
 
-    <div class="col col-lg-2"></div>
+    <div class="col col-lg-2">
+    </div>
   </div>
-<button (click)="addArtistToLibrary()">ajouter artist</button>
-  <br><br>
+
+  <div class="text-center" id="divBtn">
+    <button (click)="addArtistToLibrary()" class="btn btn-outline-dark">S'abonner </button>
+  </div>
+
 
   <h3 class="text-center">Populaires</h3>
   <div class="row justify-content-md-center">
