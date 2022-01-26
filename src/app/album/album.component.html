@@ -15,8 +15,8 @@
       <p class="text-left"> {{album.nb_tracks}} titre(s) - {{secondesToMinutes()}} - {{album.fans}} fans </p>
       <p class="text-left"> <fa-icon [icon]="faCalendar"> </fa-icon> {{dateRelease()}}</p>
       <p class="text-left">
-        <button  *ngIf="this.userService.accessToken != undefined && !this.isInUserLibrary" (click)="addAlbumToLibrary()" class="btn btn-outline-dark">  Ajouter dans mes albums <fa-icon [icon]="faHeart"> </fa-icon></button>
-		<button *ngIf="this.userService.accessToken != undefined && this.isInUserLibrary" (click)="removeAlbumFromLibrary()" class="btn btn-outline-dark">Retirer de mes albums </button>
+        <button  *ngIf="this.userService.accessToken != undefined && !this.isInUserLibrary" (click)="addAlbumToLibrary()" class="btn btn-outline-dark">  Ajouter dans mes albums <fa-icon [icon]="farHeart"> </fa-icon></button>
+		<button *ngIf="this.userService.accessToken != undefined && this.isInUserLibrary" (click)="removeAlbumFromLibrary()" class="btn btn-outline-dark">Retirer de mes albums <fa-icon [icon]="fasHeart"></fa-icon></button>
 	</p>
     </div>
   </div>

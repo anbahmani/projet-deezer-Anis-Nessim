@@ -2,6 +2,8 @@ import { HttpHeaderResponse, HttpParams } from '@angular/common/http';
 import { AfterContentChecked, AfterContentInit, Component, DoCheck, Input, OnInit } from '@angular/core';
 import { ActivatedRoute,Router,RouterStateSnapshot } from '@angular/router';
 import { firstValueFrom, forkJoin } from 'rxjs';
+import { faHeart as fasHeart } from '@fortawesome/free-regular-svg-icons';
+import { faHeart as farHeart} from '@fortawesome/free-solid-svg-icons';
 import { DeezerService } from '../services/deezer.service';
 import { Artist } from '../models/Artist';
 import { Track } from '../models/Track';
@@ -16,6 +18,9 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./artist.component.scss']
 })
 export class ArtistComponent implements OnInit {
+  public farHeart =farHeart;
+  public fasHeart = fasHeart;
+  
   id!: string ;
   public artist!: Artist;
   private response: any;

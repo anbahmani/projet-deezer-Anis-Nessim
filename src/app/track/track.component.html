@@ -9,8 +9,8 @@
     <div class="col-md-6">
       <h3 class="text-left">
         {{track.title}}
-        <button *ngIf="this.userService.accessToken != undefined && !this.isInUserLibrary" (click)="addTrackToLibrary()" class="btn btn-outline-dark">  Ajouter à mes morceaux<fa-icon [icon]="faHeart"> </fa-icon></button>
-		<button *ngIf="this.userService.accessToken != undefined && this.isInUserLibrary" (click)="removeTrackFromLibrary()" class="btn btn-outline-dark">Retirer de mes morceaux </button>
+        <button *ngIf="this.userService.accessToken != undefined && !this.isInUserLibrary" (click)="addTrackToLibrary()" class="btn btn-outline-dark">  Ajouter à mes morceaux <fa-icon [icon]="fasHeart"> </fa-icon></button>
+		<button *ngIf="this.userService.accessToken != undefined && this.isInUserLibrary" (click)="removeTrackFromLibrary()" class="btn btn-outline-dark">Retirer de mes morceaux <fa-icon [icon]="farHeart"></fa-icon></button>
       </h3>
    
       <p class="text-left"> <img src="{{track.artist.picture_small}}" id="imgArtist" /> by {{track.artist.name}} </p>

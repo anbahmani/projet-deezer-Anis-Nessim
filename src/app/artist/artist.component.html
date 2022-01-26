@@ -24,8 +24,8 @@
   </div>
 
   <div class="text-center" id="divBtn">
-    <button *ngIf="this.userService.accessToken != undefined && !this.isInUserLibrary" (click)="addArtistToLibrary()" class="btn btn-outline-dark">Ajouter à ma bibliothèque </button>
-	<button *ngIf="this.userService.accessToken != undefined && this.isInUserLibrary" (click)="removeArtistFromLibrary()" class="btn btn-outline-dark">Retirer de ma bibliothèque </button>
+    <button *ngIf="this.userService.accessToken != undefined && !this.isInUserLibrary" (click)="addArtistToLibrary()" class="btn btn-outline-dark">Ajouter à mes artistes <fa-icon [icon]="farHeart"> </fa-icon> </button>
+	  <button *ngIf="this.userService.accessToken != undefined && this.isInUserLibrary" (click)="removeArtistFromLibrary()" class="btn btn-outline-dark">Retirer de mes artistes <fa-icon [icon]="fasHeart"> </fa-icon> </button>
   </div>
 
 
