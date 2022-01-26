@@ -74,23 +74,19 @@ export class GeneralSearchMusicComponent implements OnInit {
 		const obs_artists$ = this.deezerService.getArtistsByName(event.target.value);
    		this.responseArtists = await firstValueFrom(obs_artists$);
    		this.artists = this.responseArtists.data;
-		if (this.responseArtists.next == undefined)
-			this.canGetMoreArtists = false;
+		(this.responseArtists.next == undefined) ? this.canGetMoreArtists = false : this.canGetMoreArtists = true;
 		const obs_tracks$ = this.deezerService.getTracksByName(event.target.value);
    		this.responseTracks = await firstValueFrom(obs_tracks$);
    		this.tracks = this.responseTracks.data;
-		   if (this.responseTracks.next == undefined)
-			this.canGetMoreTracks = false;
+		(this.responseTracks.next == undefined) ? this.canGetMoreTracks = false : this.canGetMoreTracks = true;
 		const obs_albums$ = this.deezerService.getAlbumsByName(event.target.value);
    		this.responseAlbums = await firstValueFrom(obs_albums$);
    		this.albums = this.responseAlbums.data;
-		   if (this.responseAlbums.next == undefined)
-			this.canGetMoreAlbums = false;
+		(this.responseAlbums.next == undefined) ? this.canGetMoreAlbums = false : this.canGetMoreAlbums = true;
 		const obs_playslits$ = this.deezerService.getPlaylistsByName(event.target.value);
    		this.responsePlaylists = await firstValueFrom(obs_playslits$);
    		this.playlists = this.responsePlaylists.data;
-		   if (this.responsePlaylists.next == undefined)
-			this.canGetMorePlaylists = false;
+		(this.responsePlaylists.next == undefined) ? this.canGetMorePlaylists = false : this.canGetMorePlaylists = true;
 	}
 
 	public sendArtistAndNavigateToArtist(selectedArtist:Artist){

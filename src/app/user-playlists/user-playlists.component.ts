@@ -35,14 +35,14 @@ export class UserPlaylistsComponent implements OnInit {
 	});
 	}
   }
-  /*
+  
   public async getPlaylists(){
 	const playlists$ = this.deezerService.getPlaylistsFromUserLibrary(this.userService.accessToken);
 	if (playlists$ != undefined) {
 		const response : any = await firstValueFrom(playlists$);
 		this.playlists = response.data;
 	}
-  }*/
+  }
   
   public shortString(str:string) : string{
 	return (str.length > 20) ? str.slice(0, 19).concat("...") : str;
