@@ -23,6 +23,7 @@ import { ChartComponent } from './chart/chart.component';
 import { UserArtistsComponent } from './user-artists/user-artists.component';
 import { UserAlbumsComponent } from './user-albums/user-albums.component';
 import { UserTracksComponent } from './user-tracks/user-tracks.component';
+import { CommonModule } from "@angular/common";
 
 
 
@@ -52,7 +53,8 @@ import { UserTracksComponent } from './user-tracks/user-tracks.component';
     FontAwesomeModule,
     ReactiveFormsModule,
     AccordionModule,
-    CarouselModule
+    CarouselModule,
+	CommonModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

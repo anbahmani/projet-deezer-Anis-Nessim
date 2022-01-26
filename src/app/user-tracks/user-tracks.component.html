@@ -1,1 +1,9 @@
-<p>user-tracks works!</p>
+<h2 class="text-center">Mes Morceaux</h2>
+<div class="grid">
+	<ng-container *ngFor="let track of this.tracks; let indexTrack = index">
+				<div class="card" >
+					<img class="card-img-top rounded" (click)="sendTrackAndNavigateToTrack(track)" src={{track.album.cover_medium}}>
+					<h5 class="card-text text-center" (click)="sendTrackAndNavigateToTrack(track)">{{shortString(track.title)}}</h5>
+			</div>
+	</ng-container>
+</div>

@@ -30,7 +30,7 @@ export class UserService {
 	public getCurrentUser(){
 		if(this.accessToken != undefined)
 		{
-			var url : string = "http://localhost:8080/https://api.deezer.com/user/me?access_token=".concat(this.accessToken.toString());
+			var url : string = "http://localhost:8080/https://api.deezer.com/user/me?access_token=".concat(this.accessToken);
     		return this.http.get<User>(url);
 		}
 		return undefined;

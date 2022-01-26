@@ -17,7 +17,7 @@ export class PlaylistComponent implements OnInit {
   public faUser = faUser;
   public faCalendar = faCalendar;
   public faHeart = faHeart;
-
+  public isInUserLibrary !: boolean; 
   public playlist!: Playlist;
   private response: any;
 
@@ -43,7 +43,24 @@ export class PlaylistComponent implements OnInit {
   }
 
   public addPlaylistToLibrary(){
-	this.deezerService.addPlaylistToUserLibrary(this.userService.user.id, this.playlist.id, this.userService.accessToken);
+	this.deezerService.addPlaylistToUserLibrary(this.userService.user.id, this.playlist.id, this.userService.accessToken);	
+	this.isInUserLibrary = true;
   }
 
+  public removePlaylistFromLibrary(){
+	this.deezerService.removePlaylistFromUserLibrary(this.userService.user.id, this.playlist.id, this.userService.accessToken);
+	this.isInUserLibrary = false;
+  }
+
+  public async getPlaylistFromUserLibrary(){
+	const playlists$ = this.deezerService.getPlaylistsFromUserLibrary(this.userService.accessToken);
+	if (playlists$ != undefined) {
+		const response : any = await firstValueFrom(playlists$);
+    	const playlists = response.data;
+		const playlistId = this.playlist.id;
+		this.isInUserLibrary = playlists.some(function(play : Playlist) {
+			return play.id === playlistId;
+		  });
+	}
+  }
 }

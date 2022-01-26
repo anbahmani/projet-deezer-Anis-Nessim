@@ -1,1 +1,9 @@
-<p>user-albums works!</p>
+<h2 class="text-center">Mes Albums</h2>
+<div class="grid">
+	<ng-container *ngFor="let album of this.albums; let indexAlbum = index">
+			<div class="card" >
+				<img class="card-img-top rounded" (click)="sendAlbumAndNavigateToAlbum(album)" src={{album.cover_medium}}>
+				<h5 class="card-text text-center" (click)="sendAlbumAndNavigateToAlbum(album)">{{shortString(album.title)}}</h5>
+			</div>
+	</ng-container>
+</div>

@@ -22,6 +22,7 @@ export class ArtistComponent implements OnInit {
   private response2!: any;
   public listTop!: Track[];
   public albums!:Album[];
+  public isInUserLibrary !: boolean;
 
   constructor(	private deezerService:DeezerService,
 				private router:Router, 
@@ -31,10 +32,21 @@ export class ArtistComponent implements OnInit {
 
   async ngOnInit() {
     this.artist = this.artistService.getArtist();
-    const liste$ = this.deezerService.getTopByArtist(+(this.artist.id));
+	this.getTopList();
+	this.getAlbums();
+	if (this.userService.accessToken != undefined){
+		this.getArtistFromUserLibrary();
+	}
+  }
+
+  private async getTopList(){
+	const liste$ = this.deezerService.getTopByArtist(+(this.artist.id));
     this.response = await firstValueFrom(liste$);
     this.listTop = this.response.data;
-	  const listeAlbums$ = this.deezerService.getAlbumsByArtist(+(this.artist.id));
+  }
+
+  private async getAlbums(){
+	const listeAlbums$ = this.deezerService.getAlbumsByArtist(+(this.artist.id));
     this.response2 = await firstValueFrom(listeAlbums$);
     this.albums = this.response2.data;
   }
@@ -54,7 +66,25 @@ export class ArtistComponent implements OnInit {
 	return (str.length > 20) ? str.slice(0, 19).concat("...") : str;
   }
 
-  public async addArtistToLibrary(){
+  public addArtistToLibrary(){
 	this.deezerService.addArtistToUserLibrary(this.userService.user.id, this.artist.id, this.userService.accessToken);
+	this.isInUserLibrary = true;
+  }
+
+  public removeArtistFromLibrary(){
+	this.deezerService.removeArtistFromUserLibrary(this.userService.user.id, this.artist.id, this.userService.accessToken);
+	this.isInUserLibrary = false;
+  }
+
+  public async getArtistFromUserLibrary(){
+	const artists$ = this.deezerService.getArtistsFromUserLibrary(this.userService.accessToken);
+	if (artists$ != undefined) {
+		const response : any = await firstValueFrom(artists$);
+    	const artists = response.data;
+		const artistId = this.artist.id;
+		this.isInUserLibrary = artists.some(function(art : Artist) {
+			return art.id === artistId;
+		  });
+	}
   }
 }

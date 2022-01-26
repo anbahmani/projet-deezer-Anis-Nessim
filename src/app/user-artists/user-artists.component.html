@@ -1,0 +1,9 @@
+<h2 class="text-center">Mes Artistes</h2>
+<div class="grid">
+	<ng-container *ngFor="let artist of this.artists; let indexArtist = index">
+				<div class="card" >
+					<img class="card-img-top rounded" (click)="sendArtistAndNavigateToArtist(artist)" src={{artist.picture_medium}}>
+					<h5 class="card-text text-center" (click)="sendArtistAndNavigateToArtist(artist)">{{shortString(artist.name)}}</h5>
+			</div>
+	</ng-container>
+</div>

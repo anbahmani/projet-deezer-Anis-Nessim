@@ -21,7 +21,7 @@
 			<a class="nav-link" id="link-menu" routerLink="chart"> Chart </a>
 		  </li>
 		  <div class="dropdown nav-item">
-			<button class="dropbtn">Ma bibliothèque</button>
+			<button *ngIf="this.userService.accessToken != undefined" class="dropbtn">Ma bibliothèque</button>
 			<div class="dropdown-content">
 			  <a class="nav-link" routerLink="user-artists">Mes artistes</a>
 			  <a class="nav-link" routerLink="user-albums">Mes albums</a>

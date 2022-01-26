@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { firstValueFrom } from 'rxjs';
+import { Playlist } from '../models/Playlist';
+import { DeezerService } from '../services/deezer.service';
+import { PlaylistService } from '../services/playlist.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-user-playlists',
@@ -7,9 +13,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserPlaylistsComponent implements OnInit {
 
-  constructor() { }
+	public playlists !: Playlist[];
 
-  ngOnInit(): void {
+  constructor(	private deezerService : DeezerService,
+				private userService : UserService,
+				private playlistService : PlaylistService,
+				private router : Router) { }
+  
+  public async ngOnInit(){
+	const playlists$ = this.deezerService.getPlaylistsFromUserLibrary(this.userService.accessToken);
+	if (playlists$ != undefined) {
+		const response : any = await firstValueFrom(playlists$);
+		this.playlists = response.data;
+		this.playlists = this.playlists.slice(1, this.playlists.length - 1);
+	}
   }
-
+  /*
+  public async getPlaylists(){
+	const playlists$ = this.deezerService.getPlaylistsFromUserLibrary(this.userService.accessToken);
+	if (playlists$ != undefined) {
+		const response : any = await firstValueFrom(playlists$);
+		this.playlists = response.data;
+	}
+  }*/
+  
+  public shortString(str:string) : string{
+	return (str.length > 20) ? str.slice(0, 19).concat("...") : str;
+  }
+  
+  public sendPlaylistAndNavigateToPlaylist(selectedPlaylist:Playlist){
+	this.playlistService.setPlaylist(selectedPlaylist);
+	this.router.navigateByUrl('/playlist');
+  }
 }

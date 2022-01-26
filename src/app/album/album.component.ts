@@ -20,6 +20,7 @@ export class AlbumComponent implements OnInit {
 
 	private response : any;
 	public album!:Album;
+	public isInUserLibrary !: boolean; 
 
 
   constructor(	private deezerService:DeezerService,
@@ -50,6 +51,24 @@ export class AlbumComponent implements OnInit {
 
   public addAlbumToLibrary(){
 	this.deezerService.addAlbumToUserLibrary(this.userService.user.id, this.album.id, this.userService.accessToken);
+	this.isInUserLibrary = true;
+  }
+
+  public removeAlbumFromLibrary(){
+	this.deezerService.removeAlbumFromUserLibrary(this.userService.user.id, this.album.id, this.userService.accessToken);
+	this.isInUserLibrary = false;
+  }
+
+  public async getAlbumFromUserLibrary(){
+	const albums$ = this.deezerService.getAlbumsFromUserLibrary(this.userService.accessToken);
+	if (albums$ != undefined) {
+		const response : any = await firstValueFrom(albums$);
+    	const albums = response.data;
+		const albumId = this.album.id;
+		this.isInUserLibrary = albums.some(function(alb : Album) {
+			return alb.id === albumId;
+		  });
+	}
   }
 }
 

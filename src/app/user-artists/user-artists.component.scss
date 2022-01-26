@@ -1,0 +1,10 @@
+.card{
+	width: 12rem;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}

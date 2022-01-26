@@ -16,9 +16,8 @@ export class TrackComponent implements OnInit {
   public faHourglass = faHourglass;
   public faCalendar = faCalendar;
   public faHeart = faHeart;
-  
-
-	public track !: Track;
+  public isInUserLibrary !: boolean; 
+  public track !: Track;
   private response:any;
 
   constructor(	private deezerService:DeezerService,
@@ -44,5 +43,23 @@ export class TrackComponent implements OnInit {
 
   public addTrackToLibrary(){
 	this.deezerService.addTrackToUserLibrary(this.userService.user.id, this.track.id, this.userService.accessToken);
+	this.isInUserLibrary = true;
+  }
+
+  public removeTrackFromLibrary(){
+	this.deezerService.removeTrackFromUserLibrary(this.userService.user.id, this.track.id, this.userService.accessToken);
+	this.isInUserLibrary = false;
+  }
+
+  public async getTrackFromUserLibrary(){
+	const tracks$ = this.deezerService.getTracksFromUserLibrary(this.userService.accessToken);
+	if (tracks$ != undefined) {
+		const response : any = await firstValueFrom(tracks$);
+    	const tracks = response.data;
+		const trackId = this.track.id;
+		this.isInUserLibrary = tracks.some(function(tr : Track) {
+			return tr.id === trackId;
+		  });
+	}
   }
 }
