@@ -6,6 +6,7 @@ import { faUser, faCalendar, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { formatDate } from '@angular/common';
 import { firstValueFrom } from 'rxjs';
 import { Track } from '../models/Track';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-playlist',
@@ -20,7 +21,9 @@ export class PlaylistComponent implements OnInit {
   public playlist!: Playlist;
   private response: any;
 
-  constructor(private deezerService: DeezerService, private playlistService: PlaylistService) { }
+  constructor(	private deezerService: DeezerService,
+				private playlistService: PlaylistService,
+				private userService:UserService) { }
 
   async ngOnInit() {
     const infoPlaylist$ = this.deezerService.getPlaylistFullInfo(this.playlistService.getPlaylist().id);
@@ -40,7 +43,7 @@ export class PlaylistComponent implements OnInit {
   }
 
   public addPlaylistToLibrary(){
-	
+	this.deezerService.addPlaylistToUserLibrary(this.userService.user.id, this.playlist.id, this.userService.accessToken);
   }
 
 }

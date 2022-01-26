@@ -6,6 +6,7 @@ import { faCalendar, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { AlbumService } from '../services/album.service';
 import { DeezerService } from '../services/deezer.service';
 import { Track } from '../models/Track';
+import { UserService } from '../services/user.service';
 
 
 @Component({
@@ -21,7 +22,9 @@ export class AlbumComponent implements OnInit {
 	public album!:Album;
 
 
-  constructor(private deezerService:DeezerService, private albumService:AlbumService) { }
+  constructor(	private deezerService:DeezerService,
+				private albumService:AlbumService,
+				private userService:UserService) { }
 
   async ngOnInit() {
     const infoAlbum$ = this.deezerService.getAlbumFullInfo(this.albumService.getAlbum().id);;
@@ -46,7 +49,7 @@ export class AlbumComponent implements OnInit {
   }
 
   public addAlbumToLibrary(){
-	
+	this.deezerService.addAlbumToUserLibrary(this.userService.user.id, this.album.id, this.userService.accessToken);
   }
 }
 

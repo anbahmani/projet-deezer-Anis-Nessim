@@ -5,6 +5,7 @@ import { DeezerService } from '../services/deezer.service';
 import { TrackService } from '../services/track.service';
 import { faHourglass,faCalendar, faHeart} from '@fortawesome/free-solid-svg-icons';
 import { firstValueFrom } from 'rxjs';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-track',
@@ -20,7 +21,9 @@ export class TrackComponent implements OnInit {
 	public track !: Track;
   private response:any;
 
-  constructor(private deezerService:DeezerService, private trackService:TrackService) {}
+  constructor(	private deezerService:DeezerService,
+				private trackService:TrackService,
+				private userService:UserService) {}
 
   async ngOnInit() {
     const infoTrack$ =this.deezerService.getTrackFullInfo(this.trackService.getTrack().id);
@@ -40,6 +43,6 @@ export class TrackComponent implements OnInit {
   }
 
   public addTrackToLibrary(){
-	
+	this.deezerService.addTrackToUserLibrary(this.userService.user.id, this.track.id, this.userService.accessToken);
   }
 }

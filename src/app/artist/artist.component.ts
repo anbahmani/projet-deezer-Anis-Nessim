@@ -55,7 +55,6 @@ export class ArtistComponent implements OnInit {
   }
 
   public async addArtistToLibrary(){
-	  console.log(this.userService.user);
 	this.deezerService.addArtistToUserLibrary(this.userService.user.id, this.artist.id, this.userService.accessToken);
   }
 }
