@@ -34,7 +34,6 @@ export class UserPlaylistsComponent implements OnInit {
 		this.playlists = playlistToReturn;
 	});
 	}
-	console.log(this.playlists)
   }
   /*
   public async getPlaylists(){
