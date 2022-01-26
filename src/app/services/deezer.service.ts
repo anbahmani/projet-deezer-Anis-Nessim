@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Artist } from '../models/Artist';
+import { Playlist } from '../models/Playlist';
 
 @Injectable({
   providedIn: 'root'
@@ -166,6 +167,7 @@ export class DeezerService {
 
   public getPlaylistsFromUserLibrary(accessToken : string | undefined){
 	if (accessToken != undefined){
+		alert('t')
 		return this.http.get('http://localhost:8080/https://api.deezer.com/user/me/playlists'
 						.concat('?access_token=').concat(accessToken))
 	}

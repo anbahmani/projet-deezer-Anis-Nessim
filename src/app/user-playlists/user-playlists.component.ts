@@ -22,11 +22,19 @@ export class UserPlaylistsComponent implements OnInit {
   
   public async ngOnInit(){
 	const playlists$ = this.deezerService.getPlaylistsFromUserLibrary(this.userService.accessToken);
+	
 	if (playlists$ != undefined) {
 		const response : any = await firstValueFrom(playlists$);
 		this.playlists = response.data;
-		this.playlists = this.playlists.slice(1, this.playlists.length - 1);
+		const playlistToReturn : Array<Playlist> = new Array<Playlist>();
+	this.playlists.forEach((uniquePlaylist : Playlist)=>{
+		if(!uniquePlaylist.is_loved_track){
+			playlistToReturn.push(uniquePlaylist)
+		}
+		this.playlists = playlistToReturn;
+	});
 	}
+	console.log(this.playlists)
   }
   /*
   public async getPlaylists(){

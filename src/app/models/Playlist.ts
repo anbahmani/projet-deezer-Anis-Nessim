@@ -19,4 +19,5 @@ export interface Playlist {
 	duration:number;
 	fans:number;
 	tracks:Tracklist;
+	is_loved_track:boolean;
 }
