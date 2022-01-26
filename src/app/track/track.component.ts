@@ -28,6 +28,9 @@ export class TrackComponent implements OnInit {
     const infoTrack$ =this.deezerService.getTrackFullInfo(this.trackService.getTrack().id);
     this.response = await firstValueFrom(infoTrack$);
 	  this.track = this.response;
+	  if (this.userService.accessToken != undefined){
+		this.getTrackFromUserLibrary();
+	}
   }
 
   public secondesToMinutes(): string{

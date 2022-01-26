@@ -31,6 +31,9 @@ export class AlbumComponent implements OnInit {
     const infoAlbum$ = this.deezerService.getAlbumFullInfo(this.albumService.getAlbum().id);;
     this.response = await firstValueFrom(infoAlbum$);
 	  this.album = this.response;
+	  if (this.userService.accessToken != undefined){
+		this.getAlbumFromUserLibrary();
+	}
   }
 
   public secondesToMinutes(): string{
